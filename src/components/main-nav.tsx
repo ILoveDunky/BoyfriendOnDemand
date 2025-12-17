@@ -22,7 +22,7 @@ export default function MainNav() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-headline text-xl font-bold text-primary">
           <Heart className="h-6 w-6 text-accent" />
-          Heartstrings Haven
+          Boyfriend on Demand
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (

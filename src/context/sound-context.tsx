@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useRef, useCallback, useEffect } from 'react';
 import * as Tone from 'tone';
 
 interface SoundContextType {
@@ -8,6 +8,7 @@ interface SoundContextType {
   toggleMusic: () => void;
   playSoundEffect: (url: string) => void;
   isInitialized: boolean;
+  initAudio: () => Promise<void>;
 }
 
 const SoundContext = createContext<SoundContextType | undefined>(undefined);
@@ -30,28 +31,39 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
 
   const initAudio = useCallback(async () => {
     if (isInitialized) return;
-    
-    await Tone.start();
-    
-    volume.current = new Tone.Volume(-16).toDestination(); // Start with low volume
-    musicPlayer.current = new Tone.Player({
-      // In a real app, provide a high-quality, seamless loop
-      url: "https://cdn.pixabay.com/audio/2023/10/10/audio_242fceb849.mp3",
-      loop: true,
-      fadeOut: 1,
-      fadeIn: 1,
-    }).connect(volume.current);
+    try {
+      await Tone.start();
+      
+      volume.current = new Tone.Volume(-16).toDestination();
+      musicPlayer.current = new Tone.Player({
+        url: "https://cdn.pixabay.com/audio/2022/11/17/audio_8b2141940e.mp3",
+        loop: true,
+        fadeOut: 1,
+        fadeIn: 1,
+      }).connect(volume.current);
 
-    sfxPlayer.current = new Tone.Player().toDestination();
-    sfxPlayer.current.fadeOut = 0.1;
-    
-    setIsInitialized(true);
-    console.log('Audio context initialized.');
+      await Tone.loaded();
+
+      sfxPlayer.current = new Tone.Player().toDestination();
+      sfxPlayer.current.fadeOut = 0.1;
+      
+      setIsInitialized(true);
+      console.log('Audio context initialized.');
+
+      // Autoplay music after initialization
+      if (musicPlayer.current?.state !== 'started') {
+        musicPlayer.current?.start();
+        setIsMusicPlaying(true);
+      }
+    } catch (e) {
+      console.error("Error initializing audio:", e);
+    }
   }, [isInitialized]);
 
   const toggleMusic = useCallback(async () => {
     if (!isInitialized) {
       await initAudio();
+      return; // initAudio now handles autoplay
     }
     
     if (musicPlayer.current?.state === 'started') {
@@ -61,12 +73,6 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
       if(musicPlayer.current?.loaded) {
         musicPlayer.current.start();
         setIsMusicPlaying(true);
-      } else {
-        // Handle case where music is not loaded yet
-        Tone.loaded().then(() => {
-          musicPlayer.current?.start();
-          setIsMusicPlaying(true);
-        });
       }
     }
   }, [initAudio, isInitialized]);
@@ -77,44 +83,40 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     if (sfxPlayer.current) {
-        sfxPlayer.current.load(url).then(() => {
-          if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
-            // Duck the music
-            volume.current.volume.rampTo(-24, 0.5);
-          }
-          sfxPlayer.current?.start();
-        });
-
-        sfxPlayer.current.onstop = () => {
+        try {
+            await sfxPlayer.current.load(url)
             if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
-                // Restore music volume
-                volume.current.volume.rampTo(-16, 0.5);
+                // Duck the music
+                volume.current.volume.rampTo(-24, 0.5);
             }
+            sfxPlayer.current?.start();
+
+            // Use an event listener on the player to know when it stops
+            const stopEvent = Tone.Transport.scheduleOnce((time) => {
+                if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
+                    // Restore music volume
+                    volume.current.volume.rampTo(-16, 0.5);
+                }
+            }, `+${sfxPlayer.current.buffer.duration}`);
+            
+            sfxPlayer.current.onstop = () => {
+                 if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
+                    // Restore music volume
+                    volume.current.volume.rampTo(-16, 0.5);
+                }
+                // Clean up transport schedule
+                Tone.Transport.clear(stopEvent);
+            }
+
+        } catch (e) {
+            console.error('Error playing sound effect', e)
         }
     }
 
   }, [initAudio, isInitialized]);
   
-  // This effect ensures that the audio context is started by a user gesture.
-  // We attach it to the first click anywhere on the document.
-  useEffect(() => {
-    const handleFirstClick = async () => {
-      if (!isInitialized) {
-        await initAudio();
-      }
-      window.removeEventListener('click', handleFirstClick);
-    };
-    
-    window.addEventListener('click', handleFirstClick);
-    
-    return () => {
-      window.removeEventListener('click', handleFirstClick);
-    };
-  }, [initAudio, isInitialized]);
-
-
   return (
-    <SoundContext.Provider value={{ isMusicPlaying, toggleMusic, playSoundEffect, isInitialized }}>
+    <SoundContext.Provider value={{ isMusicPlaying, toggleMusic, playSoundEffect, isInitialized, initAudio }}>
       {children}
     </SoundContext.Provider>
   );

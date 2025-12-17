@@ -17,14 +17,14 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
 } from '@/components/ui/sidebar'
-import { Bot, Home, PenSquare, Image as ImageIcon, Music, BookHeart, Heart } from 'lucide-react'
+import { Home, PenSquare, Image as ImageIcon, Music, BookHeart, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { useDevAuth } from '@/context/dev-auth-context'
+import DevAuth from '@/components/dev-auth'
 
 const devNavItems = [
   { href: '/developer', label: 'Dashboard', icon: Home },
   { href: '/developer/content', label: 'Content', icon: PenSquare },
-  { href: '/developer/prompts', label: 'AI Prompts', icon: Bot },
 ]
 
 const mainNavItems = [
@@ -39,7 +39,13 @@ export default function DevLayout({
 }: {
   children: React.ReactNode
 }) {
-    const pathname = usePathname()
+  const pathname = usePathname()
+  const { isAuthenticated } = useDevAuth();
+
+  if (!isAuthenticated) {
+    return <DevAuth />;
+  }
+
   return (
     <SidebarProvider>
       <Sidebar>

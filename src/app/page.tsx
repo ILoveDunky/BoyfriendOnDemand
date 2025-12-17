@@ -4,12 +4,17 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useSound } from '@/context/sound-context';
 
 export default function EntryPortal() {
   const [isEntering, setIsEntering] = useState(false);
   const router = useRouter();
+  const { isInitialized, initAudio } = useSound();
 
-  const handleEnter = () => {
+  const handleEnter = async () => {
+    if (!isInitialized) {
+      await initAudio();
+    }
     setIsEntering(true);
     setTimeout(() => {
       router.push('/dashboard');
@@ -32,7 +37,7 @@ export default function EntryPortal() {
         <button
           onClick={handleEnter}
           disabled={isEntering}
-          aria-label="Enter Heartstrings Haven"
+          aria-label="Enter Boyfriend on Demand"
           className="group relative flex h-48 w-48 items-center justify-center rounded-full border-4 border-transparent bg-background text-primary shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-accent/30 focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/50 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
           <div className="absolute inset-0 rounded-full bg-accent/20 blur-xl transition-all duration-500 group-hover:bg-accent/30"></div>

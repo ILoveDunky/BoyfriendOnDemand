@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SoundProvider } from '@/context/sound-context';
+import { DevAuthProvider } from '@/context/dev-auth-context';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Heartstrings Haven',
+  title: 'Boyfriend on Demand',
   description: 'A special place for my favorite person.',
 };
 
@@ -25,10 +26,12 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-body antialiased')}>
-        <SoundProvider>
-          {children}
-          <Toaster />
-        </SoundProvider>
+        <DevAuthProvider>
+          <SoundProvider>
+            {children}
+            <Toaster />
+          </SoundProvider>
+        </DevAuthProvider>
       </body>
     </html>
   );
