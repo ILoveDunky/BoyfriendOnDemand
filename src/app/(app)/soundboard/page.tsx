@@ -1,16 +1,18 @@
+
 'use client';
 
-import { soundboardCategories } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { PlayCircle, Volume2 } from 'lucide-react';
 import { useSound } from '@/context/sound-context';
 import { useState } from 'react';
+import { useContent } from '@/context/content-context';
 
 export default function SoundboardPage() {
     const { playSoundEffect } = useSound();
     const [nowPlaying, setNowPlaying] = useState<string | null>(null);
+    const { soundboardCategories } = useContent();
     
   return (
     <div className="container mx-auto">
@@ -29,7 +31,7 @@ export default function SoundboardPage() {
             <CardDescription>Click on a category to see the messages.</CardDescription>
         </CardHeader>
         <div className="p-2 sm:p-6">
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full" defaultValue={soundboardCategories[0]?.id}>
                 {soundboardCategories.map((category) => (
                     <AccordionItem value={category.id} key={category.id}>
                         <AccordionTrigger className="text-lg font-headline hover:no-underline rounded-lg px-4 hover:bg-secondary">
@@ -70,3 +72,5 @@ export default function SoundboardPage() {
     </div>
   );
 }
+
+    

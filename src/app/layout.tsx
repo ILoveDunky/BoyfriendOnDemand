@@ -1,8 +1,10 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SoundProvider } from '@/context/sound-context';
 import { DevAuthProvider } from '@/context/dev-auth-context';
+import { ContentProvider } from '@/context/content-context';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -27,12 +29,16 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body antialiased')}>
         <DevAuthProvider>
-          <SoundProvider>
-            {children}
-            <Toaster />
-          </SoundProvider>
+          <ContentProvider>
+            <SoundProvider>
+              {children}
+              <Toaster />
+            </SoundProvider>
+          </ContentProvider>
         </DevAuthProvider>
       </body>
     </html>
   );
 }
+
+    

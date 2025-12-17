@@ -1,5 +1,7 @@
+
+'use client';
+
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +10,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from '@/components/ui/card';
+import { useContent } from '@/context/content-context';
 
 export default function GalleryPage() {
-  const images = PlaceHolderImages;
+  const { images } = useContent();
 
   return (
     <div className="container mx-auto">
@@ -55,3 +58,5 @@ export default function GalleryPage() {
     </div>
   );
 }
+
+    

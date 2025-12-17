@@ -1,8 +1,13 @@
-import { letters } from '@/lib/data';
+
+'use client';
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { BookHeart } from 'lucide-react';
+import { useContent } from '@/context/content-context';
 
 export default function LettersPage() {
+  const { letters } = useContent();
+
   return (
     <div className="container mx-auto">
       <header className="mb-12 text-center">
@@ -33,3 +38,5 @@ export default function LettersPage() {
     </div>
   );
 }
+
+    

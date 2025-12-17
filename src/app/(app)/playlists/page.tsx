@@ -1,10 +1,15 @@
-import { playlists } from '@/lib/data';
+
+'use client';
+
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Music2 } from 'lucide-react';
+import { useContent } from '@/context/content-context';
 
 export default function PlaylistsPage() {
+  const { playlists } = useContent();
+
   return (
     <div className="container mx-auto">
       <header className="mb-12 text-center">
@@ -43,3 +48,5 @@ export default function PlaylistsPage() {
     </div>
   );
 }
+
+    
