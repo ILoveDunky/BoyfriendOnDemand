@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "selfie1",
+      "description": "A happy selfie on a sunny day.",
+      "imageUrl": "https://images.unsplash.com/photo-1758524941980-4245cc149fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMHNlbGZpZXxlbnwwfHx8fDE3NjYwMTQ1MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy selfie"
+    },
+    {
+      "id": "selfie2",
+      "description": "Cozy at home with a cup of tea.",
+      "imageUrl": "https://images.unsplash.com/photo-1632927126546-e3e051a0ba6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3p5JTIwaG9tZXxlbnwwfHx8fDE3NjU5MzY0NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cozy home"
+    },
+    {
+      "id": "selfie3",
+      "description": "A silly face just for you.",
+      "imageUrl": "https://images.unsplash.com/photo-1758600588151-264b6d7fcbb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzaWxseSUyMGZhY2V8ZW58MHx8fHwxNzY2MDE0NTM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "silly face"
+    },
+    {
+      "id": "selfie4",
+      "description": "Thinking of you during a walk.",
+      "imageUrl": "https://images.unsplash.com/photo-1472740378865-80aab8e73251?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxuYXR1cmUlMjB3YWxrfGVufDB8fHx8MTc2NjAxNDUzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nature walk"
+    },
+    {
+      "id": "selfie5",
+      "description": "From that one time we went to the beach.",
+      "imageUrl": "https://images.unsplash.com/photo-1658074271269-f7f414550804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiZWFjaCUyMG1lbW9yeXxlbnwwfHx8fDE3NjYwMTQ1MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beach memory"
+    }
+  ]
 }
