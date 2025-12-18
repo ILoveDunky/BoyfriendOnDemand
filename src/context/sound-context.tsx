@@ -37,7 +37,7 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
       
       volume.current = new Tone.Volume(-18).toDestination(); // Lowered volume slightly
       musicPlayer.current = new Tone.Player({
-        url: "https://cdn.pixabay.com/audio/2022/11/17/audio_8b2141940e.mp3", // A calm piano track
+        url: "https://cdn.pixabay.com/audio/2022/10/11/audio_19194e43b6.mp3", // A calm piano track
         loop: true,
         fadeOut: 1,
         fadeIn: 1,
@@ -89,7 +89,8 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
             if (sfxPlayer.current.state === 'started') {
               sfxPlayer.current.stop();
             }
-            await sfxPlayer.current.load(url)
+            // The load method can throw an error if the URL is invalid or inaccessible
+            await sfxPlayer.current.load(url);
 
             if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
                 // Duck the music
