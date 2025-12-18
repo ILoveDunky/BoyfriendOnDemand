@@ -10,8 +10,8 @@
     --card-foreground: 275 25% 25%;
     --popover: 270 100% 99%;
     --popover-foreground: 275 25% 25%;
-    --primary: 275 28% 65%; /* #9b7bbd muted-plum */
-    --primary-foreground: 0 0% 100%;
+    --primary: 273 70% 83%; /* lavender */
+    --primary-foreground: 275 25% 15%;
     --secondary: 274 78% 91%; /* #e6d4fa soft-lilac */
     --secondary-foreground: 275 25% 25%;
     --muted: 273 70% 95%;
@@ -20,7 +20,7 @@
     --accent-foreground: 275 25% 25%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 273 70% 89%; /* #d6b5f4 lavender */
+    --border: 273 70% 89%;
     --input: 273 70% 94%;
     --ring: 341 58% 88%;
     --chart-1: 12 76% 61%;

@@ -1,4 +1,3 @@
-
 import type { LucideIcon } from 'lucide-react';
 import { Heart, Moon, Smile, Sparkles, Coffee, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Package, BookOpen, Mic2 } from 'lucide-react';
 
@@ -35,7 +34,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   // Everyday
   {
     id: 'everyday-morning',
-    name: '🌤️ Morning, Baby',
+    name: 'Morning, Baby',
     icon: Sparkles,
     clips: [
       { id: 'morning1', title: 'Good Morning', audioSrc: 'https://files.catbox.moe/mtlwey.mp3' },
@@ -48,7 +47,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   {
     id: 'everyday-before-work',
-    name: '💼 Before Work',
+    name: 'Before Work',
     icon: Briefcase,
     clips: [
       { id: 'work1', title: 'Have A Good Day At Work', audioSrc: 'https://files.catbox.moe/gkiuzl.mp3' },
@@ -60,7 +59,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   {
     id: 'everyday-cant-talk',
-    name: '🤫 When We Can’t Talk Yet',
+    name: 'When We Can’t Talk Yet',
     icon: Moon,
     clips: [
         { id: 'cant-talk1', title: 'I Know Waiting Is Hard', audioSrc: 'https://files.catbox.moe/5nrz7w.mp3' },
@@ -71,7 +70,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   {
     id: 'everyday-just-because',
-    name: '💕 Just Because',
+    name: 'Just Because',
     icon: Heart,
     clips: [
         { id: 'just-because1', title: 'Hiii', audioSrc: 'https://files.catbox.moe/xzbmpw.mp3' },
@@ -86,7 +85,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   // Soft Moments
   {
     id: 'soft-near',
-    name: '🌸 When You Just Want Me Near',
+    name: 'When You Just Want Me Near',
     icon: HeartHandshake,
     clips: [
         { id: 'near1', title: 'I Wish I Was There Too', audioSrc: 'https://files.catbox.moe/fqhtrd.mp3' },
@@ -98,7 +97,7 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   {
     id: 'soft-affection',
-    name: '🥰 Affection',
+    name: 'Affection',
     icon: Smile,
     clips: [
         { id: 'affection1', title: 'Come Closer', audioSrc: 'https://files.catbox.moe/95xtqu.mp3' },
@@ -114,50 +113,73 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   {
     id: 'soft-extra',
-    name: '🧸 Extra Soft',
+    name: 'Extra Soft',
     icon: Feather,
-    clips: [],
+    clips: [
+        { id: 'extra-soft1', title: 'You Don\'t Have To Be Strong', audioSrc: 'https://files.catbox.moe/0ygxyr.mp3' },
+        { id: 'extra-soft2', title: 'Just Take A Breath', audioSrc: 'https://files.catbox.moe/9uq5y1.mp3' },
+        { id: 'extra-soft3', title: 'Always Enough', audioSrc: 'https://files.catbox.moe/xhdbiu.mp3' },
+        { id: 'extra-soft4', title: 'Take Your Time', audioSrc: 'https://files.catbox.moe/v2z4wx.mp3' },
+        { id: 'extra-soft5', title: 'Let Yourself Breathe', audioSrc: 'https://files.catbox.moe/dxhu9u.mp3' },
+    ],
   },
   {
     id: 'soft-before-nap',
-    name: '😴 Before Your Nap',
+    name: 'Before Your Nap',
     icon: Moon,
-    clips: [],
-  },
-  {
-    id: 'soft-sit-with-me',
-    name: '🪑 Come Sit With Me',
-    icon: Coffee,
-    clips: [],
+    clips: [
+        { id: 'nap1', title: 'A Great Nap', audioSrc: 'https://files.catbox.moe/cf65dd.mp3' },
+        { id: 'nap2', title: 'I\'ve Got You', audioSrc: 'https://files.catbox.moe/x7krhc.mp3' },
+        { id: 'nap3', title: 'You Deserve The Rest', audioSrc: 'https://files.catbox.moe/a6jaaa.mp3' },
+        { id: 'nap4', title: 'Go Ahead And Rest', audioSrc: 'https://files.catbox.moe/rgijao.mp3' },
+    ],
   },
   // Hard Moments
   {
     id: 'hard-overthinking',
-    name: '🧠 Overthinking',
+    name: 'Overthinking',
     icon: Wind,
-    clips: [],
+    clips: [
+        { id: 'overthinking1', title: 'Slow Down', audioSrc: 'https://files.catbox.moe/o5pfsy.mp3' },
+        { id: 'overthinking2', title: 'Doesn\'t Change How I Think About You', audioSrc: 'https://files.catbox.moe/0phdyf.mp3' },
+        { id: 'overthinking3', title: 'Even When Your Brain Races', audioSrc: 'https://files.catbox.moe/bu9qq8.mp3' },
+        { id: 'overthinking4', title: 'Focus On Your Breathing', audioSrc: 'https://files.catbox.moe/nkx4wy.mp3' },
+        { id: 'overthinking5', title: 'Even If It Feels Messy', audioSrc: 'https://files.catbox.moe/b90fwm.mp3' },
+        { id: 'overthinking6', title: 'We\'re Okay', audioSrc: 'https://files.catbox.moe/95ab6w.mp3' },
+        { id: 'overthinking7', title: 'Replaying In Your Head', audioSrc: 'https://files.catbox.moe/540eqi.mp3' },
+    ],
   },
   {
     id: 'hard-heavy',
-    name: '☁️ Everything Feels Too Heavy',
+    name: 'Everything Feels Too Heavy',
     icon: CloudRain,
-    clips: [],
+    clips: [
+        { id: 'heavy1', title: 'A longer one for you', audioSrc: 'https://files.catbox.moe/0x64j2.mp3' },
+    ],
+    footer: "This is a longer one to keep you company when things feel heavy."
   },
   {
     id: 'hard-too-much',
-    name: '🌊 When You Feel Too Much',
+    name: 'When You Feel Too Much',
     icon: CloudRain,
-    clips: [],
+    clips: [
+        { id: 'toomuch1', title: 'For when emotions are overwhelming', audioSrc: 'https://files.catbox.moe/dx3yqb.mp3' },
+    ],
+    footer: "Another longer one, just for when you're feeling a lot."
   },
   {
     id: 'hard-small',
-    name: '🤏 When You Feel Small',
+    name: 'When You Feel Small',
     icon: Feather,
-    clips: [],
+    clips: [
+        { id: 'small1', title: 'Hey... You Matter More Than You Think', audioSrc: 'https://files.catbox.moe/0oeuut.mp3' },
+        { id: 'small2', title: 'You\'re Not Invisible To Me', audioSrc: 'https://files.catbox.moe/eym958.mp3' },
+        { id: 'small3', title: 'You\'re Important To Me', audioSrc: 'https://files.catbox.moe/tzfwm8.mp3' },
+    ],
   },
   {
     id: 'open-when',
-    name: '🫂 Open When You Need It Most',
+    name: 'Open When You Need It Most',
     icon: Package,
     clips: [],
   },
@@ -165,7 +187,7 @@ export const soundboardCategories: SoundboardCategory[] = [
 
 export const easterEggCategory: SoundboardCategory = {
     id: 'easter-egg',
-    name: '🤫 Psst...',
+    name: 'Psst...',
     icon: Heart,
     clips: [
         { id: 'kiss1', title: 'Kisses only', audioSrc: '' },
@@ -178,19 +200,19 @@ export const easterEggCategory: SoundboardCategory = {
 export const storyCategories: SoundboardCategory[] = [
     {
         id: 'stories-bedtime',
-        name: '🌙 Bedtime Stories',
+        name: 'Bedtime Stories',
         icon: Moon,
         clips: [],
     },
     {
         id: 'stories-memories',
-        name: '💭 Gentle Memories',
+        name: 'Gentle Memories',
         icon: BookOpen,
         clips: [],
     },
     {
         id: 'stories-imagined',
-        name: '🫶 Imagined Moments',
+        name: 'Imagined Moments',
         icon: Mic2,
         clips: [],
     }

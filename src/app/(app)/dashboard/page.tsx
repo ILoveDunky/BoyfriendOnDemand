@@ -8,7 +8,7 @@ const features = [
     description: 'Listen to my voice whenever you need to.',
     href: '/soundboard',
     icon: Music,
-    color: 'text-purple-400',
+    color: 'text-primary',
   },
   {
     title: 'Photo Gallery',
