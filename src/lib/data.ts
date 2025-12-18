@@ -37,7 +37,7 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '🌤️ Morning, Baby',
     icon: Sparkles,
     clips: [
-      { id: 'morning1', title: 'Good Morning', audioSrc: '' }
+      { id: 'morning1', title: 'Good Morning', audioSrc: 'https://files.catbox.moe/mtlwey.mp3' }
     ],
   },
   {
