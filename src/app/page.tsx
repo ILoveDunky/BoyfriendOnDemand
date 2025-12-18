@@ -9,12 +9,12 @@ import { useSound } from '@/context/sound-context';
 export default function EntryPortal() {
   const [isEntering, setIsEntering] = useState(false);
   const router = useRouter();
-  const { isInitialized, initAudio } = useSound();
+  const { initAudio } = useSound();
 
   const handleEnter = async () => {
-    if (!isInitialized) {
-      await initAudio();
-    }
+    // Initialize audio context on user interaction
+    await initAudio();
+    
     setIsEntering(true);
     setTimeout(() => {
       router.push('/dashboard');

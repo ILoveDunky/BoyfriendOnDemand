@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Heart, Moon, Smile, Sparkles, Coffee, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Box, Package, BookOpen, Mic2 } from 'lucide-react';
+import { Heart, Moon, Smile, Sparkles, Coffee, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Package, BookOpen, Mic2 } from 'lucide-react';
 
 export interface AudioClip {
   id: string;

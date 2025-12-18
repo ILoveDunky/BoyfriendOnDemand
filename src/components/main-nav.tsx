@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard, Album } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import MusicToggle from './music-toggle';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -42,7 +41,7 @@ export default function MainNav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-            <MusicToggle />
+            {/* Music toggle removed */}
         </div>
       </div>
     </header>
