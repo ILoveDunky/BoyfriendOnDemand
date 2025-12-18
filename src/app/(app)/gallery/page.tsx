@@ -10,11 +10,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from '@/components/ui/card';
-import { useContent } from '@/context/content-context';
+import { PlaceHolderImages as images } from '@/lib/placeholder-images';
 
 export default function GalleryPage() {
-  const { images } = useContent();
-
   return (
     <div className="container mx-auto">
       <header className="mb-12 text-center">
@@ -58,5 +56,3 @@ export default function GalleryPage() {
     </div>
   );
 }
-
-    

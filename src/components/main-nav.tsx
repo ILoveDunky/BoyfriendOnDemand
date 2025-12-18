@@ -1,8 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard, Github } from 'lucide-react';
+import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import MusicToggle from './music-toggle';
 
@@ -41,13 +42,6 @@ export default function MainNav() {
         </nav>
         <div className="flex items-center gap-2">
             <MusicToggle />
-            <Link href="/developer" className={cn(
-                'flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary/50',
-                pathname.startsWith('/developer') ? 'bg-secondary text-secondary-foreground' : 'text-muted-foreground'
-            )}>
-                <Github className="h-4 w-4" />
-                <span className="hidden sm:inline">Dev Area</span>
-            </Link>
         </div>
       </div>
     </header>

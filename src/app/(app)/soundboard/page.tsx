@@ -7,12 +7,11 @@ import { Button } from '@/components/ui/button';
 import { PlayCircle, Volume2 } from 'lucide-react';
 import { useSound } from '@/context/sound-context';
 import { useState } from 'react';
-import { useContent } from '@/context/content-context';
+import { soundboardCategories } from '@/lib/data';
 
 export default function SoundboardPage() {
     const { playSoundEffect } = useSound();
     const [nowPlaying, setNowPlaying] = useState<string | null>(null);
-    const { soundboardCategories } = useContent();
     
   return (
     <div className="container mx-auto">
@@ -72,5 +71,3 @@ export default function SoundboardPage() {
     </div>
   );
 }
-
-    

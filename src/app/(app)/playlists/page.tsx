@@ -2,12 +2,10 @@
 'use client';
 
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { useContent } from '@/context/content-context';
+import { playlists } from '@/lib/data';
 import { Music2 } from 'lucide-react';
 
 export default function PlaylistsPage() {
-  const { playlists } = useContent();
-
   return (
     <div className="container mx-auto">
       <header className="mb-12 text-center">
