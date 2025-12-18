@@ -134,6 +134,7 @@ export default function SoundboardPage() {
                           size="lg"
                           className="h-auto justify-start py-4 rounded-xl text-left flex items-center gap-4"
                           onClick={() => playClip(clip)}
+                          disabled={!clip.audioSrc}
                         >
                           {nowPlaying === clip.id ? (
                             <Volume2 className="h-6 w-6 text-accent animate-pulse" />
@@ -146,6 +147,9 @@ export default function SoundboardPage() {
                         </Button>
                       ))}
                     </div>
+                    {category.footer && (
+                        <p className="px-4 pt-4 text-sm text-muted-foreground italic">{category.footer}</p>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               )
@@ -172,6 +176,7 @@ export default function SoundboardPage() {
                             size="sm"
                             className="h-auto justify-start py-2 rounded-lg text-left flex items-center gap-3"
                              onClick={() => playClip(clip)}
+                             disabled={!clip.audioSrc}
                         >
                             {nowPlaying === clip.id ? (
                                 <Volume2 className="h-5 w-5 text-accent animate-pulse" />
