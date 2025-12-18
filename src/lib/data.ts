@@ -36,7 +36,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     id: 'everyday-morning',
     name: '🌤️ Morning, Baby',
     icon: Sparkles,
-    clips: [],
+    clips: [
+      { id: 'morning1', title: 'Good Morning', audioSrc: 'https://cf-media.sndcdn.com/Qs90mhiBNXpo.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUXM5MG1oaUJOWHBvLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY2MDE5OTQ0fX19XX0_&Signature=LVwVRMNH87PN~QRZqenZAFwq9jqBXVx0aVkMbZZZqX3t-GawbRRhQwxbwzrYfeNjVaH5uWt8akhKTWdr0myGQ5ZC5A9YJbfbPA4RD~onVy~aklEgx-aGe2PjkrDDqCPDHduGJxc3kJ2FG-oUkIuliOkI9ksoACxPDc0UYJCXU2dhVbBXqg4220m4nvSF6z~cqSvTos2OsWfHvkDwqEVB5qwPUc06HHNCMbzDL0hEotJNj2wPiHVwEip0MbXswba0B5CTHz-MB7N8q-xQACjiH20eIZIF-J9ELadkELENwGUAEoLF6YtlqoQyGmbukRpQ8FTxXAN0q3N7PmppvzopDQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ' }
+    ],
   },
   {
     id: 'everyday-before-work',
