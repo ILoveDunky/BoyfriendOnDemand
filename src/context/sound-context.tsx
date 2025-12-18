@@ -37,7 +37,7 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
       
       volume.current = new Tone.Volume(-18).toDestination(); // Lowered volume slightly
       musicPlayer.current = new Tone.Player({
-        url: "https://cdn.pixabay.com/audio/2022/11/17/audio_8b2141940e.mp3", // A calm piano track
+        url: "https://cdn.pixabay.com/audio/2024/05/13/audio-76986-128293.mp3", // A calm piano track
         loop: true,
         fadeOut: 1,
         fadeIn: 1,
