@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Heart, Moon, Smile, MessagesSquare, Shield, Sparkles } from 'lucide-react';
+import { Heart, Moon, Smile, Sparkles, Coffee, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Box, Package, BookOpen, MicV2 } from 'lucide-react';
 
 export interface AudioClip {
   id: string;
@@ -29,50 +29,154 @@ export interface Letter {
   content: string;
 }
 
+// Order: Everyday, Soft, Hard
 export const soundboardCategories: SoundboardCategory[] = [
+  // Everyday
   {
-    id: 'safe',
-    name: '🫂 You’re Safe With Me',
-    icon: Shield,
-    clips: [
-      { id: 'safe1', title: 'A quick reminder that you are loved', audioSrc: 'https://cdn.pixabay.com/audio/2022/10/18/audio_db2522a722.mp3' },
-      { id: 'safe2', title: 'Breathe with me', audioSrc: 'https://cdn.pixabay.com/audio/2024/05/13/audio_17291a13a8.mp3' },
-      { id: 'safe3', title: 'Everything is okay', audioSrc: 'https://cdn.pixabay.com/audio/2022/10/18/audio_2809e5e3d7.mp3' },
-    ],
+    id: 'everyday-morning',
+    name: '🌤️ Morning, Baby',
+    icon: Sparkles,
+    clips: [],
   },
   {
-    id: 'miss-you',
-    name: '💜 When You Miss Me',
+    id: 'everyday-before-work',
+    name: '💼 Before Work',
+    icon: Briefcase,
+    clips: [],
+  },
+  {
+    id: 'everyday-cant-talk',
+    name: '🤫 When We Can’t Talk Yet',
+    icon: Moon,
+    clips: [],
+  },
+  {
+    id: 'everyday-just-because',
+    name: '💕 Just Because',
+    icon: Heart,
+    clips: [],
+  },
+  // Soft Moments
+  {
+    id: 'soft-near',
+    name: '🌸 When You Just Want Me Near',
+    icon: HeartHandshake,
+    clips: [],
+  },
+  {
+    id: 'soft-affection',
+    name: '🥰 Affection',
+    icon: Smile,
+    clips: [],
+  },
+  {
+    id: 'soft-extra',
+    name: '🧸 Extra Soft',
+    icon: Feather,
+    clips: [],
+  },
+  {
+    id: 'soft-before-nap',
+    name: '😴 Before Your Nap',
+    icon: Moon,
+    clips: [],
+  },
+  {
+    id: 'soft-sit-with-me',
+    name: '🪑 Come Sit With Me',
+    icon: Coffee,
+    clips: [],
+  },
+  // Hard Moments
+  {
+    id: 'hard-overthinking',
+    name: '🧠 Overthinking',
+    icon: Wind,
+    clips: [],
+  },
+  {
+    id: 'hard-heavy',
+    name: '☁️ Everything Feels Too Heavy',
+    icon: CloudRain,
+    clips: [],
+  },
+  {
+    id: 'hard-too-much',
+    name: '🌊 When You Feel Too Much',
+    icon: CloudRain,
+    clips: [],
+  },
+  {
+    id: 'hard-small',
+    name: '🤏 When You Feel Small',
+    icon: Feather,
+    clips: [],
+  },
+  {
+    id: 'open-when',
+    name: '🫂 Open When You Need It Most',
+    icon: Package,
+    clips: [],
+  },
+];
+
+export const easterEggCategory: SoundboardCategory = {
+    id: 'easter-egg',
+    name: '🤫 Psst...',
     icon: Heart,
     clips: [
-      { id: 'miss1', title: 'I miss you too', audioSrc: '' },
-      { id: 'miss2', title: 'Thinking about our next date', audioSrc: '' },
-    ],
-  },
-  {
-    id: 'just-because',
-    name: '💕 Just Because',
-    icon: Sparkles,
-    clips: [
-      { id: 'because1', title: 'You made me smile today', audioSrc: '' },
-      { id: 'because2', title: 'A silly joke', audioSrc: '' },
-      { id: 'because3', title: 'I love you', audioSrc: '' },
-    ],
-  },
+        { id: 'kiss1', title: 'Kisses only', audioSrc: '' },
+        { id: 'come1', title: 'Come Here', audioSrc: '' },
+        { id: 'calm1', title: 'One Minute of Calm', audioSrc: '' },
+    ]
+};
+
+
+export const storyCategories: SoundboardCategory[] = [
+    {
+        id: 'stories-bedtime',
+        name: '🌙 Bedtime Stories',
+        icon: Moon,
+        clips: [],
+    },
+    {
+        id: 'stories-memories',
+        name: '💭 Gentle Memories',
+        icon: BookOpen,
+        clips: [],
+    },
+    {
+        id: 'stories-imagined',
+        name: '🫶 Imagined Moments',
+        icon: MicV2,
+        clips: [],
+    }
 ];
 
 export const playlists: Playlist[] = [
   {
     id: 'pl1',
-    title: 'Peaceful Piano for Quiet Moments',
-    description: 'Soft piano melodies to help you relax and find your center.',
-    embedSrc: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator',
+    title: '21st Afternoon of September',
+    description: 'A custom playlist for my love.',
+    embedSrc: 'https://open.spotify.com/embed/playlist/2UBykJYuj5b9UiGqh7V3og?utm_source=generator&theme=0',
   },
   {
     id: 'pl2',
-    title: 'Cozy Lo-fi Beats',
-    description: 'Chill beats for when you just need to feel cozy and safe.',
-    embedSrc: 'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui02Gu5?utm_source=generator',
+    title: 'I Belong With You',
+    description: 'Songs that make me think of you.',
+    embedSrc: 'https://open.spotify.com/embed/playlist/36ZdGEwWmc0DS4jb0POfX6?utm_source=generator&theme=0',
+  },
+  {
+    id: 'pl3',
+    title: 'For You',
+    description: 'Just for you.',
+    embedSrc: 'https://open.spotify.com/embed/playlist/3fgU9EMBrkR0gGoDz6ad91?utm_source=generator&theme=0',
+  },
+  {
+    id: 'pl4',
+    title: 'How You Make Me Feel',
+    description: 'A feeling I can\'t describe.',
+    embedSrc: 'https://open.spotify.com/embed/playlist/6GQ2bXnvmmKjiqeTenHYFm?utm_source=generator&theme=0',
   },
 ];
 
