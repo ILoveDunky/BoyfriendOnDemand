@@ -1,3 +1,4 @@
+
 'use client'
 
 import * as React from 'react'
@@ -17,7 +18,7 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
 } from '@/components/ui/sidebar'
-import { Home, PenSquare, Image as ImageIcon, Music, BookHeart, Heart } from 'lucide-react'
+import { Home, PenSquare, Image as ImageIcon, Music, BookHeart, Heart, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useDevAuth } from '@/context/dev-auth-context'
 import DevAuth from '@/components/dev-auth'
@@ -25,6 +26,7 @@ import DevAuth from '@/components/dev-auth'
 const devNavItems = [
   { href: '/developer', label: 'Dashboard', icon: Home },
   { href: '/developer/content', label: 'Content', icon: PenSquare },
+  { href: '/developer/ai-content', label: 'AI Content', icon: Sparkles },
 ]
 
 const mainNavItems = [

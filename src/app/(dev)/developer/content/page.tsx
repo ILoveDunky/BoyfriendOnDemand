@@ -413,7 +413,7 @@ function SoundboardManager() {
         const newClip: AudioClip = {
             id: `clip${Date.now()}`,
             title: 'New Clip',
-            audioSrc: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_2bab3d3957.mp3'
+            audioSrc: ''
         };
         const updatedCategories = soundboardCategories.map(cat => {
             if (cat.id === catId) {
@@ -438,7 +438,7 @@ function SoundboardManager() {
         <Card>
             <CardHeader>
                 <CardTitle>Soundboard Clips</CardTitle>
-                <CardDescription>Manage your audio messages.</CardDescription>
+                <CardDescription>Manage your audio messages. Use the AI Content page to generate audio URLs.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
                 {soundboardCategories.map(category => (
@@ -453,11 +453,13 @@ function SoundboardManager() {
                                         value={clip.title}
                                         onChange={e => handleClipChange(category.id, clip.id, 'title', e.target.value)}
                                         className="flex-grow"
+                                        placeholder="Clip Title"
                                     />
                                     <Input
                                         value={clip.audioSrc}
                                         onChange={e => handleClipChange(category.id, clip.id, 'audioSrc', e.target.value)}
                                         className="flex-grow"
+                                        placeholder="Audio URL"
                                     />
                                     <AlertDialog>
                                         <AlertDialogTrigger asChild>

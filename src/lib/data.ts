@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 import { Heart, Moon, Smile, MessagesSquare, Shield, Sparkles } from 'lucide-react';
 
@@ -30,19 +31,15 @@ export interface Letter {
   content: string;
 }
 
-// Using a public domain placeholder for audio.
-const placeholderAudio = 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_2bab3d3957.mp3';
-
-
 export const soundboardCategories: SoundboardCategory[] = [
   {
     id: 'safe',
     name: '🫂 You’re Safe With Me',
     icon: Shield,
     clips: [
-      { id: 'safe1', title: 'A quick reminder that you are loved', audioSrc: placeholderAudio },
-      { id: 'safe2', title: 'Breathe with me', audioSrc: placeholderAudio },
-      { id: 'safe3', title: 'Everything is okay', audioSrc: placeholderAudio },
+      { id: 'safe1', title: 'A quick reminder that you are loved', audioSrc: '' },
+      { id: 'safe2', title: 'Breathe with me', audioSrc: '' },
+      { id: 'safe3', title: 'Everything is okay', audioSrc: '' },
     ],
   },
   {
@@ -50,9 +47,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '💜 When You Miss Me',
     icon: Heart,
     clips: [
-      { id: 'miss1', title: 'I miss you too', audioSrc: placeholderAudio },
-      { id: 'miss2', title: 'Thinking about our next date', audioSrc: placeholderAudio },
-      { id: 'miss3', title: 'A random memory of us', audioSrc: placeholderAudio },
+      { id: 'miss1', title: 'I miss you too', audioSrc: '' },
+      { id: 'miss2', title: 'Thinking about our next date', audioSrc: '' },
+      { id: 'miss3', title: 'A random memory of us', audioSrc: '' },
     ],
   },
   {
@@ -60,9 +57,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '🧠 Quieting Your Thoughts',
     icon: MessagesSquare,
     clips: [
-      { id: 'quiet1', title: 'Let\'s ground ourselves', audioSrc: placeholderAudio },
-      { id: 'quiet2', title: 'Your thoughts are just thoughts', audioSrc: placeholderAudio },
-      { id: 'quiet3', title: 'A comforting sound', audioSrc: placeholderAudio },
+      { id: 'quiet1', title: 'Let\'s ground ourselves', audioSrc: '' },
+      { id: 'quiet2', title: 'Your thoughts are just thoughts', audioSrc: '' },
+      { id: 'quiet3', title: 'A comforting sound', audioSrc: '' },
     ],
   },
   {
@@ -70,9 +67,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '🌙 Ending the Day Gently',
     icon: Moon,
     clips: [
-      { id: 'end1', title: 'Goodnight, my love', audioSrc: placeholderAudio },
-      { id: 'end2', title: 'Sweet dreams', audioSrc: placeholderAudio },
-      { id: 'end3', title: 'A soft lullaby I like', audioSrc: placeholderAudio },
+      { id: 'end1', title: 'Goodnight, my love', audioSrc: '' },
+      { id: 'end2', title: 'Sweet dreams', audioSrc: '' },
+      { id: 'end3', title: 'A soft lullaby I like', audioSrc: '' },
     ],
   },
   {
@@ -80,9 +77,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '💕 Just Because',
     icon: Sparkles,
     clips: [
-      { id: 'because1', title: 'You made me smile today', audioSrc: placeholderAudio },
-      { id: 'because2', title: 'A silly joke', audioSrc: placeholderAudio },
-      { id: 'because3', title: 'I love you', audioSrc: placeholderAudio },
+      { id: 'because1', title: 'You made me smile today', audioSrc: '' },
+      { id: 'because2', title: 'A silly joke', audioSrc: '' },
+      { id: 'because3', title: 'I love you', audioSrc: '' },
     ],
   },
   {
@@ -90,9 +87,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '🔐 For Really Hard Moments',
     icon: Smile,
     clips: [
-      { id: 'hard1', title: 'My promise to you', audioSrc: placeholderAudio },
-      { id: 'hard2', title: 'We can get through anything', audioSrc: placeholderAudio },
-      { id: 'hard3', title: 'A pep talk from me to you', audioSrc: placeholderAudio },
+      { id: 'hard1', title: 'My promise to you', audioSrc: '' },
+      { id: 'hard2', title: 'We can get through anything', audioSrc: '' },
+      { id: 'hard3', title: 'A pep talk from me to you', audioSrc: '' },
     ],
   },
 ];
