@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { createContext, useContext, useState, useRef, useCallback, useEffect } from 'react';
@@ -34,9 +35,9 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await Tone.start();
       
-      volume.current = new Tone.Volume(-16).toDestination();
+      volume.current = new Tone.Volume(-18).toDestination(); // Lowered volume slightly
       musicPlayer.current = new Tone.Player({
-        url: "https://cdn.pixabay.com/audio/2022/11/17/audio_8b2141940e.mp3",
+        url: "https://cdn.pixabay.com/audio/2022/11/17/audio_8b2141940e.mp3", // A calm piano track
         loop: true,
         fadeOut: 1,
         fadeIn: 1,
@@ -78,34 +79,30 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
   }, [initAudio, isInitialized]);
 
   const playSoundEffect = useCallback(async (url: string) => {
+    if (!url) return; // Don't play if the URL is empty
     if (!isInitialized) {
       await initAudio();
     }
 
     if (sfxPlayer.current) {
         try {
+            if (sfxPlayer.current.state === 'started') {
+              sfxPlayer.current.stop();
+            }
             await sfxPlayer.current.load(url)
+
             if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
                 // Duck the music
-                volume.current.volume.rampTo(-24, 0.5);
+                volume.current.volume.rampTo(-24, 0.3);
             }
             sfxPlayer.current?.start();
 
-            // Use an event listener on the player to know when it stops
-            const stopEvent = Tone.Transport.scheduleOnce((time) => {
-                if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
-                    // Restore music volume
-                    volume.current.volume.rampTo(-16, 0.5);
-                }
-            }, `+${sfxPlayer.current.buffer.duration}`);
-            
+            // Use onstop to know when the sound effect finishes
             sfxPlayer.current.onstop = () => {
                  if (musicPlayer.current && musicPlayer.current.state === 'started' && volume.current) {
                     // Restore music volume
-                    volume.current.volume.rampTo(-16, 0.5);
+                    volume.current.volume.rampTo(-18, 0.5);
                 }
-                // Clean up transport schedule
-                Tone.Transport.clear(stopEvent);
             }
 
         } catch (e) {

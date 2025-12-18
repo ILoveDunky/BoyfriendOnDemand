@@ -1,7 +1,8 @@
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { PenSquare } from 'lucide-react';
+import { PenSquare, Sparkles } from 'lucide-react';
 
 export default function DeveloperPage() {
   return (
@@ -20,7 +21,7 @@ export default function DeveloperPage() {
               Content Management
             </CardTitle>
             <CardDescription>
-              Add, edit, or remove audio clips, photos, letters, and playlists.
+              Add, edit, or remove audio clips, photos, letters, and playlists. Changes are saved automatically.
             </CardDescription>
           </CardHeader>
           <CardContent>

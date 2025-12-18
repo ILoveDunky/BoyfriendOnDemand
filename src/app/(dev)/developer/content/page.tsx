@@ -9,7 +9,7 @@ import { PlusCircle, Trash2, Edit, Save, X } from "lucide-react"
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useContent } from '@/context/content-context'
-import { Letter, Playlist, SoundboardCategory, AudioClip } from '@/lib/data'
+import { Letter, Playlist, SoundboardCategory, AudioClip, ImagePlaceholder } from '@/lib/data'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -87,6 +87,7 @@ function LettersManager() {
                         })
                       }
                       className="text-lg font-bold"
+                      placeholder="Letter Title"
                     />
                     <Textarea
                       value={editingLetter.content}
@@ -97,6 +98,7 @@ function LettersManager() {
                         })
                       }
                       rows={4}
+                      placeholder="Letter Content"
                     />
                   </div>
                 ) : (
@@ -197,14 +199,35 @@ function LettersManager() {
 
 function PlaylistsManager() {
     const { playlists, setPlaylists } = useContent();
-    const [isCreating, setIsCreating] = useState(false)
-    const [newPlaylist, setNewPlaylist] = useState({ title: '', description: '', url: '' });
+    const [isCreating, setIsCreating] = useState(false);
+    const [newPlaylistEmbed, setNewPlaylistEmbed] = useState('');
     const [editingPlaylist, setEditingPlaylist] = useState<Playlist | null>(null);
 
+    const extractSrc = (iframe: string) => {
+        const match = iframe.match(/src="([^"]*)"/);
+        return match ? match[1] : '';
+    }
+
+    const extractTitleAndDesc = (embedSrc: string): { title: string, description: string } => {
+        try {
+            const url = new URL(embedSrc);
+            const path = url.pathname;
+            if (path.includes('/embed/playlist/')) {
+                return { title: 'Spotify Playlist', description: 'Listen on Spotify.' };
+            }
+        } catch (e) {
+            // Not a valid URL
+        }
+        return { title: 'New Playlist', description: 'A collection of songs.' };
+    }
+
+
     const handleCreate = () => {
-        if (newPlaylist.title && newPlaylist.description && newPlaylist.url) {
-            setPlaylists([...playlists, { id: `pl${Date.now()}`, ...newPlaylist }]);
-            setNewPlaylist({ title: '', description: '', url: '' });
+        const embedSrc = extractSrc(newPlaylistEmbed);
+        if (embedSrc) {
+            const { title, description } = extractTitleAndDesc(embedSrc);
+            setPlaylists([...playlists, { id: `pl${Date.now()}`, title, description, embedSrc }]);
+            setNewPlaylistEmbed('');
             setIsCreating(false);
         }
     };
@@ -214,13 +237,17 @@ function PlaylistsManager() {
     };
 
     const handleEdit = (playlist: Playlist) => {
-        setEditingPlaylist({ ...playlist });
+        setEditingPlaylist({ ...playlist, embedSrc: `<iframe src="${playlist.embedSrc}"></iframe>` }); // Reconstruct for editing
     };
 
     const handleSave = () => {
         if (editingPlaylist) {
-            setPlaylists(playlists.map((p) => (p.id === editingPlaylist.id ? editingPlaylist : p)));
-            setEditingPlaylist(null);
+            const newEmbedSrc = extractSrc(editingPlaylist.embedSrc);
+            if(newEmbedSrc) {
+                 const { title, description } = extractTitleAndDesc(newEmbedSrc);
+                 setPlaylists(playlists.map((p) => (p.id === editingPlaylist.id ? { ...editingPlaylist, embedSrc: newEmbedSrc, title, description } : p)));
+                 setEditingPlaylist(null);
+            }
         }
     };
 
@@ -228,7 +255,7 @@ function PlaylistsManager() {
         <Card>
             <CardHeader>
                 <CardTitle>Playlists</CardTitle>
-                <CardDescription>Manage your curated playlists. Use a shareable link from Spotify, Apple Music, etc.</CardDescription>
+                <CardDescription>Manage your Spotify playlists. Paste the full embed code from Spotify.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
                 <div className="space-y-4">
@@ -237,15 +264,20 @@ function PlaylistsManager() {
                             <CardContent className="p-4 space-y-2">
                                 {editingPlaylist?.id === playlist.id ? (
                                     <div className="space-y-2">
-                                        <Input value={editingPlaylist.title} onChange={(e) => setEditingPlaylist({ ...editingPlaylist, title: e.target.value })} />
-                                        <Textarea value={editingPlaylist.description} onChange={(e) => setEditingPlaylist({ ...editingPlaylist, description: e.target.value })} />
-                                        <Input placeholder="https://open.spotify.com/..." value={editingPlaylist.url} onChange={(e) => setEditingPlaylist({ ...editingPlaylist, url: e.target.value })} />
+                                        <Textarea value={editingPlaylist.embedSrc} onChange={(e) => setEditingPlaylist({ ...editingPlaylist, embedSrc: e.target.value })} rows={4} placeholder='<iframe src="..."/>'/>
                                     </div>
                                 ) : (
                                     <div>
-                                        <h3 className="font-bold text-lg">{playlist.title}</h3>
-                                        <p className="text-sm text-muted-foreground">{playlist.description}</p>
-                                        <p className="mt-2 text-sm text-blue-400 truncate hover:underline"><a href={playlist.url} target="_blank" rel="noopener noreferrer">{playlist.url}</a></p>
+                                        <iframe 
+                                            style={{ borderRadius: '12px' }} 
+                                            src={playlist.embedSrc}
+                                            width="100%" 
+                                            height="152" 
+                                            frameBorder="0" 
+                                            allowFullScreen={false}
+                                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                            loading="lazy"
+                                        ></iframe>
                                     </div>
                                 )}
                                 <div className="flex items-center gap-2 pt-2">
@@ -276,9 +308,7 @@ function PlaylistsManager() {
                 {isCreating && (
                     <div className="space-y-4 rounded-lg border p-4">
                         <h3 className="font-medium">New Playlist</h3>
-                        <Input placeholder="Playlist Title" value={newPlaylist.title} onChange={(e) => setNewPlaylist({ ...newPlaylist, title: e.target.value })} />
-                        <Textarea placeholder="Description..." value={newPlaylist.description} onChange={(e) => setNewPlaylist({ ...newPlaylist, description: e.target.value })} />
-                        <Input placeholder="Spotify/Music URL" value={newPlaylist.url} onChange={(e) => setNewPlaylist({ ...newPlaylist, url: e.target.value })} />
+                        <Textarea placeholder="Paste Spotify embed code here..." value={newPlaylistEmbed} onChange={(e) => setNewPlaylistEmbed(e.target.value)} rows={4} />
                         <div className="flex gap-2">
                             <Button onClick={handleCreate}><Save className="mr-2 h-4 w-4" /> Save Playlist</Button>
                             <Button variant="ghost" onClick={() => setIsCreating(false)}>Cancel</Button>
@@ -296,12 +326,12 @@ function PlaylistsManager() {
 function GalleryManager() {
     const { images, setImages } = useContent();
     const [isCreating, setIsCreating] = useState(false);
-    const [newImage, setNewImage] = useState({ description: '', imageUrl: '', imageHint: '' });
-    const [editingImage, setEditingImage] = useState<(typeof images[0]) | null>(null);
+    const [newImage, setNewImage] = useState<Omit<ImagePlaceholder, 'id'>>({ description: '', imageUrl: '', imageHint: '' });
+    const [editingImage, setEditingImage] = useState<ImagePlaceholder | null>(null);
 
      const handleCreate = () => {
         if (newImage.description && newImage.imageUrl) {
-            setImages([...images, { id: `selfie${Date.now()}`, ...newImage }]);
+            setImages([...images, { id: `img${Date.now()}`, ...newImage }]);
             setNewImage({ description: '', imageUrl: '', imageHint: '' });
             setIsCreating(false);
         }
@@ -311,7 +341,7 @@ function GalleryManager() {
         setImages(images.filter((img) => img.id !== id));
     };
 
-    const handleEdit = (image: (typeof images[0])) => {
+    const handleEdit = (image: ImagePlaceholder) => {
         setEditingImage({ ...image });
     };
 
@@ -326,7 +356,7 @@ function GalleryManager() {
         <Card>
             <CardHeader>
                 <CardTitle>Photo Gallery</CardTitle>
-                <CardDescription>Manage your selfies and photos.</CardDescription>
+                <CardDescription>Manage your photos. Use direct image URLs.</CardDescription>
             </CardHeader>
             <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {images.map((image) => (
@@ -335,8 +365,8 @@ function GalleryManager() {
                          <CardContent className="p-4 space-y-2">
                              {editingImage?.id === image.id ? (
                                 <div className="space-y-2">
-                                     <Input value={editingImage.description} onChange={(e) => setEditingImage({ ...editingImage, description: e.target.value })} />
-                                     <Input value={editingImage.imageUrl} onChange={(e) => setEditingImage({ ...editingImage, imageUrl: e.target.value })} />
+                                     <Input placeholder="Description" value={editingImage.description} onChange={(e) => setEditingImage({ ...editingImage, description: e.target.value })} />
+                                     <Input placeholder="Image URL" value={editingImage.imageUrl} onChange={(e) => setEditingImage({ ...editingImage, imageUrl: e.target.value })} />
                                      <Input value={editingImage.imageHint} placeholder="AI Hint (e.g. happy selfie)" onChange={(e) => setEditingImage({ ...editingImage, imageHint: e.target.value })} />
                                  </div>
                              ) : (
@@ -412,7 +442,7 @@ function SoundboardManager() {
     const handleAddClip = (catId: string) => {
         const newClip: AudioClip = {
             id: `clip${Date.now()}`,
-            title: 'New Clip',
+            title: 'New Clip Title',
             audioSrc: ''
         };
         const updatedCategories = soundboardCategories.map(cat => {
@@ -438,7 +468,7 @@ function SoundboardManager() {
         <Card>
             <CardHeader>
                 <CardTitle>Soundboard Clips</CardTitle>
-                <CardDescription>Manage your audio messages. Use the AI Content page to generate audio URLs.</CardDescription>
+                <CardDescription>Manage your audio messages. Paste direct audio URLs (e.g., from SoundCloud or Pixabay).</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
                 {soundboardCategories.map(category => (
@@ -459,7 +489,7 @@ function SoundboardManager() {
                                         value={clip.audioSrc}
                                         onChange={e => handleClipChange(category.id, clip.id, 'audioSrc', e.target.value)}
                                         className="flex-grow"
-                                        placeholder="Audio URL"
+                                        placeholder="Audio URL (e.g., .mp3)"
                                     />
                                     <AlertDialog>
                                         <AlertDialogTrigger asChild>
@@ -489,31 +519,29 @@ export default function ContentPage() {
       <header className="mb-8">
         <h1 className="font-headline text-4xl font-bold tracking-tight">Content Management</h1>
         <p className="mt-2 text-muted-foreground">
-          Here you can manage all the content that appears in the app.
+          Here you can manage all the content that appears in the app. All changes are saved automatically.
         </p>
       </header>
-      <Tabs defaultValue="letters">
+      <Tabs defaultValue="playlists">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
-          <TabsTrigger value="soundboard">Soundboard</TabsTrigger>
-          <TabsTrigger value="gallery">Gallery</TabsTrigger>
-          <TabsTrigger value="letters">Letters</TabsTrigger>
           <TabsTrigger value="playlists">Playlists</TabsTrigger>
+          <TabsTrigger value="letters">Letters</TabsTrigger>
+          <TabsTrigger value="gallery">Gallery</TabsTrigger>
+          <TabsTrigger value="soundboard">Soundboard</TabsTrigger>
         </TabsList>
-        <TabsContent value="soundboard">
-          <SoundboardManager />
-        </TabsContent>
-        <TabsContent value="gallery">
-          <GalleryManager />
+        <TabsContent value="playlists">
+          <PlaylistsManager />
         </TabsContent>
         <TabsContent value="letters">
           <LettersManager />
         </TabsContent>
-        <TabsContent value="playlists">
-          <PlaylistsManager />
+        <TabsContent value="gallery">
+          <GalleryManager />
+        </TabsContent>
+        <TabsContent value="soundboard">
+          <SoundboardManager />
         </TabsContent>
       </Tabs>
     </div>
   )
 }
-
-    

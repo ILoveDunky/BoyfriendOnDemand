@@ -1,7 +1,8 @@
 
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useLocalStorage } from '@/hooks/use-local-storage';
 import { 
     letters as initialLetters,
     playlists as initialPlaylists,
@@ -37,10 +38,10 @@ export const useContent = () => {
 };
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
-  const [letters, setLetters] = useState<Letter[]>(initialLetters);
-  const [playlists, setPlaylists] = useState<Playlist[]>(initialPlaylists);
-  const [images, setImages] = useState<ImagePlaceholder[]>(initialImages);
-  const [soundboardCategories, setSoundboardCategories] = useState<SoundboardCategory[]>(initialSoundboardCategories);
+  const [letters, setLetters] = useLocalStorage<Letter[]>('content-letters', initialLetters);
+  const [playlists, setPlaylists] = useLocalStorage<Playlist[]>('content-playlists', initialPlaylists);
+  const [images, setImages] = useLocalStorage<ImagePlaceholder[]>('content-images', initialImages);
+  const [soundboardCategories, setSoundboardCategories] = useLocalStorage<SoundboardCategory[]>('content-soundboard', initialSoundboardCategories);
 
   const value = {
     letters, setLetters,
@@ -55,5 +56,3 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
     </ContentContext.Provider>
   );
 };
-
-    

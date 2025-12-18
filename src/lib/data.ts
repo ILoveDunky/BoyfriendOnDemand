@@ -5,7 +5,6 @@ import { Heart, Moon, Smile, MessagesSquare, Shield, Sparkles } from 'lucide-rea
 export interface AudioClip {
   id: string;
   title: string;
-  // In a real app, this would point to an actual audio file URL
   audioSrc: string; 
 }
 
@@ -20,8 +19,7 @@ export interface Playlist {
   id: string;
   title: string;
   description: string;
-  // In a real app, this would be a Spotify/Apple Music embed link or URI
-  url: string; 
+  embedSrc: string; 
 }
 
 export interface Letter {
@@ -37,9 +35,9 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: '🫂 You’re Safe With Me',
     icon: Shield,
     clips: [
-      { id: 'safe1', title: 'A quick reminder that you are loved', audioSrc: '' },
-      { id: 'safe2', title: 'Breathe with me', audioSrc: '' },
-      { id: 'safe3', title: 'Everything is okay', audioSrc: '' },
+      { id: 'safe1', title: 'A quick reminder that you are loved', audioSrc: 'https://cdn.pixabay.com/audio/2022/10/18/audio_db2522a722.mp3' },
+      { id: 'safe2', title: 'Breathe with me', audioSrc: 'https://cdn.pixabay.com/audio/2024/05/13/audio_17291a13a8.mp3' },
+      { id: 'safe3', title: 'Everything is okay', audioSrc: 'https://cdn.pixabay.com/audio/2022/10/18/audio_2809e5e3d7.mp3' },
     ],
   },
   {
@@ -49,27 +47,6 @@ export const soundboardCategories: SoundboardCategory[] = [
     clips: [
       { id: 'miss1', title: 'I miss you too', audioSrc: '' },
       { id: 'miss2', title: 'Thinking about our next date', audioSrc: '' },
-      { id: 'miss3', title: 'A random memory of us', audioSrc: '' },
-    ],
-  },
-  {
-    id: 'quiet-thoughts',
-    name: '🧠 Quieting Your Thoughts',
-    icon: MessagesSquare,
-    clips: [
-      { id: 'quiet1', title: 'Let\'s ground ourselves', audioSrc: '' },
-      { id: 'quiet2', title: 'Your thoughts are just thoughts', audioSrc: '' },
-      { id: 'quiet3', title: 'A comforting sound', audioSrc: '' },
-    ],
-  },
-  {
-    id: 'end-of-day',
-    name: '🌙 Ending the Day Gently',
-    icon: Moon,
-    clips: [
-      { id: 'end1', title: 'Goodnight, my love', audioSrc: '' },
-      { id: 'end2', title: 'Sweet dreams', audioSrc: '' },
-      { id: 'end3', title: 'A soft lullaby I like', audioSrc: '' },
     ],
   },
   {
@@ -82,16 +59,6 @@ export const soundboardCategories: SoundboardCategory[] = [
       { id: 'because3', title: 'I love you', audioSrc: '' },
     ],
   },
-  {
-    id: 'hard-moments',
-    name: '🔐 For Really Hard Moments',
-    icon: Smile,
-    clips: [
-      { id: 'hard1', title: 'My promise to you', audioSrc: '' },
-      { id: 'hard2', title: 'We can get through anything', audioSrc: '' },
-      { id: 'hard3', title: 'A pep talk from me to you', audioSrc: '' },
-    ],
-  },
 ];
 
 export const playlists: Playlist[] = [
@@ -99,25 +66,13 @@ export const playlists: Playlist[] = [
     id: 'pl1',
     title: 'Peaceful Piano for Quiet Moments',
     description: 'Soft piano melodies to help you relax and find your center.',
-    url: '#',
+    embedSrc: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator',
   },
   {
     id: 'pl2',
     title: 'Cozy Lo-fi Beats',
     description: 'Chill beats for when you just need to feel cozy and safe.',
-    url: '#',
-  },
-  {
-    id: 'pl3',
-    title: 'Upbeat Songs for a Brighter Day',
-    description: 'A playlist to lift your spirits and make you smile.',
-    url: '#',
-  },
-   {
-    id: 'pl4',
-    title: 'Nostalgic Throwbacks',
-    description: 'Songs that remind me of us and all our good times.',
-    url: '#',
+    embedSrc: 'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui02Gu5?utm_source=generator',
   },
 ];
 
@@ -133,11 +88,5 @@ export const letters: Letter[] = [
     title: 'For When You Doubt Yourself',
     date: 'January 15, 2024',
     content: `Sometimes I see you get that little crease between your eyebrows when you're worried, and I wish you could see yourself the way I see you. You are the strongest, kindest, and most brilliant person I have ever met. You handle every challenge with so much grace. Please never doubt the incredible person you are. You are more than enough. You are everything.`,
-  },
-  {
-    id: 'letter3',
-    title: 'A Silly Note',
-    date: 'March 4, 2024',
-    content: `Do you remember that time we tried to bake that ridiculously complicated cake and ended up covering the entire kitchen in flour? I was still finding flour in my hair days later. I love our silly moments. I love that we can be complete goofballs together. Thank you for bringing so much laughter into my life.`,
   },
 ];

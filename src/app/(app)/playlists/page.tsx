@@ -1,11 +1,9 @@
 
 'use client';
 
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Music2 } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useContent } from '@/context/content-context';
+import { Music2 } from 'lucide-react';
 
 export default function PlaylistsPage() {
   const { playlists } = useContent();
@@ -23,30 +21,34 @@ export default function PlaylistsPage() {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {playlists.map((playlist, index) => (
-          <Card key={playlist.id} className="flex flex-col justify-between bg-background/80 transform-gpu transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20 fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+          <Card key={playlist.id} className="flex flex-col justify-between bg-background/80 transform-gpu transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/20 fade-in" style={{ animationDelay: `${index * 100}ms` }}>
             <CardHeader>
-              <div className="flex items-start gap-4">
-                <div className="mt-1">
-                  <Music2 className="h-8 w-8 text-primary" />
+                <div className="flex items-start gap-4">
+                    <div className="mt-1">
+                    <Music2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                    <CardTitle className="font-headline text-xl">{playlist.title}</CardTitle>
+                    <CardDescription className="mt-1">{playlist.description}</CardDescription>
+                    </div>
                 </div>
-                <div>
-                  <CardTitle className="font-headline text-2xl">{playlist.title}</CardTitle>
-                  <CardDescription className="mt-2">{playlist.description}</CardDescription>
-                </div>
-              </div>
             </CardHeader>
-            <CardFooter>
-              <Button asChild className="w-full">
-                <Link href={playlist.url} target="_blank" rel="noopener noreferrer">
-                  Listen Now
-                </Link>
-              </Button>
-            </CardFooter>
+            <div className="p-2 pt-0">
+                 <iframe 
+                    style={{ borderRadius: '12px' }} 
+                    src={playlist.embedSrc}
+                    width="100%" 
+                    height="152" 
+                    frameBorder="0" 
+                    allowFullScreen={false}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    title={playlist.title}
+                ></iframe>
+            </div>
           </Card>
         ))}
       </div>
     </div>
   );
 }
-
-    
