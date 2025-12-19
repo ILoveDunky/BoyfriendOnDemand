@@ -371,15 +371,25 @@ export const timelineEvents: TimelineEvent[] = [
     },
     {
         id: 'event11',
-        title: 'Our First "I Love You"',
+        title: 'And So It Began...',
         date: 'December 25, 2023',
-        description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
+        description: 'The day you made me the happiest man alive.',
         imageUrl: 'https://files.catbox.moe/sjj9t6.png'
     },
     {
         id: 'event12',
+        title: 'Our First "I Love You"',
+        date: 'December 25, 2023',
+        description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
+        imageUrl: 'https://files.catbox.moe/4sdjpd.png'
+    },
+    {
+        id: 'event13',
         title: 'Present Day',
         date: 'Now',
         description: 'More in love than ever and happier than I\'ve ever been.'
     }
 ];
+
+
+    
