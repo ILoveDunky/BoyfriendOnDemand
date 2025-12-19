@@ -26,7 +26,7 @@ export interface Playlist {
 export interface Letter {
   id: string;
   title: string;
-  date: string;
+  date?: string;
   content: string;
 }
 
@@ -259,7 +259,6 @@ export const letters: Letter[] = [
   {
     id: 'letter1',
     title: 'A Note on Distance',
-    date: '',
     content: `To my baby,
 
 I wish I could be there with you right now, just sitting together, doing nothing special. But since I can't, I hope this feels like me reaching across the distance and holding your hand in my own
@@ -276,7 +275,6 @@ Your Purple 💞`,
   {
     id: 'letter2',
     title: 'A Note on Gratitude',
-    date: '',
     content: `To my baby,
 
 Every single day I wake up feeling a little more joy than the day before, because I get to love you even more. I get to show you how much you mean to me, more and more, every single day. I get to add another day to the time I've spent with my favorite person in the whole wide world.
@@ -309,7 +307,35 @@ export const reasonsForJar: string[] = [
     "I love the little faces you make in the shower as you're washing your hair.",
     "I love the look in your eyes when you just wake up in the mornings.",
     "I love the way your jokes always make me laugh.",
-    "I love the way we always have the best banter."
+    "I love the way we always have the best banter.",
+    "I love how you make me feel wanted.",
+    "I love how safe you let yourself be with me.",
+    "I love how you choose me every day.",
+    "I love how you make me smile without meaning to.",
+    "I love how you let yourself need me.",
+    "I love how you make me feel appreciated.",
+    "I love how you let me be soft with you.",
+    "I love how you make me feel important.",
+    "I love how you care about doing things right.",
+    "I love how you make distance feel smaller.",
+    "I love how you stay on my mind.",
+    "I love how loving you feels easy.",
+    "I love how you feel like home to me.",
+    "I love you… simply because you’re you.",
+    "I love how you make me feel needed in a good way.",
+    "I love how you light up when you feel loved.",
+    "I love how you want reassurance, not because you’re weak, but because you care.",
+    "I love how you don’t pretend to be something you’re not.",
+    "I love how you trust me with your heart.",
+    "I love how you make me want to be better.",
+    "I love how loving you feels meaningful.",
+    "I love how you let yourself be soft with me.",
+    "I love how connected you want to feel.",
+    "I love how real you are.",
+    "I love how much love you have inside you.",
+    "I love how you feel things deeply instead of shallowly.",
+    "I love how your care shows up in small ways.",
+    "I love how you make me feel close, even from far away."
 ];
 
 export const timelineEvents: TimelineEvent[] = [
