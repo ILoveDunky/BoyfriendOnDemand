@@ -259,7 +259,7 @@ export const letters: Letter[] = [
   {
     id: 'letter1',
     title: 'A Note on Distance',
-    date: 'July 26, 2024',
+    date: '',
     content: `To my baby,
 
 I wish I could be there with you right now, just sitting together, doing nothing special. But since I can't, I hope this feels like me reaching across the distance and holding your hand in my own
@@ -276,7 +276,7 @@ Your Purple 💞`,
   {
     id: 'letter2',
     title: 'A Note on Gratitude',
-    date: 'July 26, 2024',
+    date: '',
     content: `To my baby,
 
 Every single day I wake up feeling a little more joy than the day before, because I get to love you even more. I get to show you how much you mean to me, more and more, every single day. I get to add another day to the time I've spent with my favorite person in the whole wide world.

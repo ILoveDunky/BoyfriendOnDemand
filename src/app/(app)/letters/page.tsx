@@ -25,7 +25,7 @@ export default function LettersPage() {
                 <CardTitle className="font-headline text-2xl">{letter.title}</CardTitle>
                 <BookHeart className="h-6 w-6 text-accent" />
               </div>
-              <CardDescription>{letter.date}</CardDescription>
+              {letter.date && <CardDescription>{letter.date}</CardDescription>}
             </CardHeader>
             <CardContent className="flex-grow">
               <p className="text-muted-foreground whitespace-pre-line leading-relaxed">{letter.content}</p>
