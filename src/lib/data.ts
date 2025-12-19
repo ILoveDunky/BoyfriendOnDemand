@@ -258,15 +258,32 @@ export const playlists: Playlist[] = [
 export const letters: Letter[] = [
   {
     id: 'letter1',
-    title: 'The Day I Realized',
-    date: 'October 26, 2023',
-    content: `I remember the exact moment I knew you were the one. We were just sitting in the park, not saying anything, and the world just felt... right. It was like all the noise in my head went quiet and all that was left was this peaceful, warm feeling. Being with you feels like coming home. Every day I find a new reason to fall even more in love with you.`,
+    title: 'A Note on Distance',
+    date: 'July 26, 2024',
+    content: `To my baby,
+
+I wish I could be there with you right now, just sitting together, doing nothing special. But since I can't, I hope this feels like me reaching across the distance and holding your hand in my own
+
+I love you in the quiet moments. I love the way you feel familiar to my heart, no matter how far apart we are.
+
+Even when we're not talking, you're still with me. Even when you miss me, I'm missing you too... probably more than you realize.
+
+One day, distance will just be a memory. Until then, know that my heart already knows where it belongs and that is with you, my perfect, beautiful, adorable, sweet, hard-working baby girl.
+
+With all my love,
+Your Purple 💞`,
   },
   {
     id: 'letter2',
-    title: 'For When You Doubt Yourself',
-    date: 'January 15, 2024',
-    content: `Sometimes I see you get that little crease between your eyebrows when you're worried, and I wish you could see yourself the way I see you. You are the strongest, kindest, and most brilliant person I have ever met. You handle every challenge with so much grace. Please never doubt the incredible person you are. You are more than enough. You are everything.`,
+    title: 'A Note on Gratitude',
+    date: 'July 26, 2024',
+    content: `To my baby,
+
+Every single day I wake up feeling a little more joy than the day before, because I get to love you even more. I get to show you how much you mean to me, more and more, every single day. I get to add another day to the time I've spent with my favorite person in the whole wide world.
+
+Every day with you feels like something I want to hold onto forever. You make me feel appreciated and happy every single day, and I love that so much. I want to make you feel every bit as good as you make me feel, all the time.
+
+Thank you for being in my life, my beautiful and wonderful baby girl.`,
   },
 ];
 
