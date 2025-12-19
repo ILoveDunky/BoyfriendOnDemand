@@ -307,37 +307,37 @@ export const timelineEvents: TimelineEvent[] = [
         title: 'The First Time I Trolled You',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/Ld1nKPM/Screenshot-2024-06-21-224606.png'
+        imageUrl: 'https://i.ibb.co/fVF86vZ/Screenshot-2024-06-21-224606.png'
     },
      {
         id: 'event3',
         title: 'Idk I Just Thought This One Was Funny',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/MkygXXy/Screenshot-2024-06-21-224647.png'
+        imageUrl: 'https://i.ibb.co/SXvhhdR/Screenshot-2024-06-21-224647.png'
     },
     {
         id: 'event4',
         title: 'The Time You Rejected Me',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/hL7g2zn/Screenshot-2024-06-21-224808.png'
+        imageUrl: 'https://i.ibb.co/svGGsnv/Screenshot-2024-06-21-224808.png'
     },
     {
         id: 'event5',
         title: 'The First Time We Stayed Up Too Late',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/z5pBf88/Screenshot-2024-06-21-224846.png'
+        imageUrl: 'https://i.ibb.co/2YWLMgt/Screenshot-2024-06-21-224846.png'
     },
     {
         id: 'event6',
         title: 'Our First Matching PFPs (Besides the Frogs)',
-        date: '',
-        description: 'I couldn\'t find the frogs!',
+        date: 'I couldn\'t find the frogs!',
+        description: '',
         imageUrls: [
-            'https://i.ibb.co/DzdvsfB/Screenshot-2024-06-21-224953.png',
-            'https://i.ibb.co/JqZ1xPq/Screenshot-2024-06-21-225010.png'
+            'https://i.ibb.co/jNKwBhg/Screenshot-2024-06-21-224953.png',
+            'https://i.ibb.co/fYpfP8c/Screenshot-2024-06-21-225010.png'
         ]
     },
     {

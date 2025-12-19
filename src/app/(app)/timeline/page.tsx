@@ -48,7 +48,7 @@ export default function TimelinePage() {
                   {event.imageUrls && (
                     <div className="grid grid-cols-2 gap-2">
                        {event.imageUrls.map((url, i) => (
-                         <div key={i} className="relative aspect-video overflow-hidden rounded-lg border bg-muted/30">
+                         <div key={i} className="relative aspect-square overflow-hidden rounded-lg border bg-muted/30">
                            <Image src={url} alt={`${event.title} ${i+1}`} fill className="object-contain" />
                          </div>
                        ))}
@@ -68,4 +68,3 @@ export default function TimelinePage() {
     </div>
   );
 }
-
