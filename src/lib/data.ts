@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 import { Heart, Moon, Smile, Sparkles, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Package, BookOpen, Mic2 } from 'lucide-react';
 
@@ -356,24 +357,24 @@ export const timelineEvents: TimelineEvent[] = [
     },
     {
         id: 'event9',
-        title: 'Our First Super Long Call',
+        title: 'Our first super long call',
         date: '',
         description: '',
-        imageUrl: 'https://files.catbox.moe/5ce27q.png'
+        imageUrl: 'https://files.catbox.moe/qbbv47.png'
     },
     {
         id: 'event10',
         title: 'Your First Wet Dream About Me',
         date: '',
         description: '',
-        imageUrl: 'https://files.catbox.moe/sjj9t6.png'
+        imageUrl: 'https://files.catbox.moe/5ce27q.png'
     },
     {
         id: 'event11',
         title: 'Our First "I Love You"',
         date: 'December 25, 2023',
         description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
-        imageUrl: 'https://files.catbox.moe/4sdjpd.png'
+        imageUrl: 'https://files.catbox.moe/sjj9t6.png'
     },
     {
         id: 'event12',
