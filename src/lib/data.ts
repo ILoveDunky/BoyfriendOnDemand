@@ -300,35 +300,35 @@ export const timelineEvents: TimelineEvent[] = [
         title: 'Our First Messages',
         date: 'Beginning of the Story',
         description: '',
-        imageUrl: 'https://i.ibb.co/L6wV2zG/Screenshot-2024-06-21-224424.png'
+        imageUrl: 'https://files.catbox.moe/rnkyiu.png'
     },
     {
         id: 'event2',
         title: 'The First Time I Trolled You',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/fVF86vZ/Screenshot-2024-06-21-224606.png'
+        imageUrl: 'https://files.catbox.moe/oigo0c.png'
     },
      {
         id: 'event3',
         title: 'Idk I Just Thought This One Was Funny',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/SXvhhdR/Screenshot-2024-06-21-224647.png'
+        imageUrl: 'https://files.catbox.moe/cpoaub.png'
     },
     {
         id: 'event4',
         title: 'The Time You Rejected Me',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/svGGsnv/Screenshot-2024-06-21-224808.png'
+        imageUrl: 'https://files.catbox.moe/x2l2he.png'
     },
     {
         id: 'event5',
         title: 'The First Time We Stayed Up Too Late',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/2YWLMgt/Screenshot-2024-06-21-224846.png'
+        imageUrl: 'https://files.catbox.moe/rxasuu.png'
     },
     {
         id: 'event6',
@@ -336,8 +336,8 @@ export const timelineEvents: TimelineEvent[] = [
         date: 'I couldn\'t find the frogs!',
         description: '',
         imageUrls: [
-            'https://i.ibb.co/jNKwBhg/Screenshot-2024-06-21-224953.png',
-            'https://i.ibb.co/fYpfP8c/Screenshot-2024-06-21-225010.png'
+            'https://files.catbox.moe/y509dp.png',
+            'https://files.catbox.moe/3ugjht.png'
         ]
     },
     {
@@ -345,35 +345,35 @@ export const timelineEvents: TimelineEvent[] = [
         title: 'The First Time You Slid Into My DMs',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/v6Rd8gDf/Screenshot-2024-06-21-225102.png'
+        imageUrl: 'https://files.catbox.moe/3mr34t.png'
     },
     {
         id: 'event8',
         title: 'The First Actual Compliment You Gave Me 😍',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/LDctZxX/Screenshot-2024-06-21-225219.png'
+        imageUrl: 'https://files.catbox.moe/c6hhgl.png'
     },
     {
         id: 'event9',
         title: 'Our First Super Long Call',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/tMGkcP1/Screenshot-2024-06-21-225253.png'
+        imageUrl: 'https://files.catbox.moe/5ce27q.png'
     },
     {
         id: 'event10',
         title: 'Your First Wet Dream About Me',
         date: '',
         description: '',
-        imageUrl: 'https://i.ibb.co/TB7wvVP/Screenshot-2024-06-21-225330.png'
+        imageUrl: 'https://files.catbox.moe/sjj9t6.png'
     },
     {
         id: 'event11',
         title: 'Our First "I Love You"',
         date: 'December 25, 2023',
         description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
-        imageUrl: 'https://i.ibb.co/FbsKGF9/Screenshot-2024-06-21-225401.png'
+        imageUrl: 'https://files.catbox.moe/4sdjpd.png'
     },
     {
         id: 'event12',
