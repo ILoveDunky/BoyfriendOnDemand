@@ -41,15 +41,15 @@ export default function TimelinePage() {
                 <CardContent>
                   {event.description && <p className="text-muted-foreground mb-4">{event.description}</p>}
                   {event.imageUrl && (
-                     <div className="relative aspect-video overflow-hidden rounded-lg border">
-                        <Image src={event.imageUrl} alt={event.title} fill className="object-cover" />
+                     <div className="relative aspect-video overflow-hidden rounded-lg border bg-muted/30">
+                        <Image src={event.imageUrl} alt={event.title} fill className="object-contain" />
                      </div>
                   )}
                   {event.imageUrls && (
                     <div className="grid grid-cols-2 gap-2">
                        {event.imageUrls.map((url, i) => (
-                         <div key={i} className="relative aspect-video overflow-hidden rounded-lg border">
-                           <Image src={url} alt={`${event.title} ${i+1}`} fill className="object-cover" />
+                         <div key={i} className="relative aspect-video overflow-hidden rounded-lg border bg-muted/30">
+                           <Image src={url} alt={`${event.title} ${i+1}`} fill className="object-contain" />
                          </div>
                        ))}
                     </div>
@@ -68,3 +68,4 @@ export default function TimelinePage() {
     </div>
   );
 }
+
