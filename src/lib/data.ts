@@ -34,6 +34,8 @@ export interface TimelineEvent {
     title: string;
     date: string;
     description: string;
+    imageUrl?: string;
+    imageUrls?: string[];
 }
 
 // Order: Everyday, Soft, Hard
@@ -295,20 +297,88 @@ export const reasonsForJar: string[] = [
 export const timelineEvents: TimelineEvent[] = [
     {
         id: 'event1',
-        title: 'Our First Coffee',
-        date: 'September 1, 2023',
-        description: 'The day it all began. We talked for hours and it felt like minutes. I didn\'t want it to end.'
+        title: 'Our First Messages',
+        date: 'Beginning of the Story',
+        description: '',
+        imageUrl: 'https://i.ibb.co/L6wV2zG/Screenshot-2024-06-21-224424.png'
     },
     {
         id: 'event2',
-        title: 'That Midnight Drive',
-        date: 'November 18, 2023',
-        description: 'Just driving around, listening to music, and talking about everything and nothing. It felt like we were the only two people in the world.'
+        title: 'The First Time I Trolled You',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/Ld1nKPM/Screenshot-2024-06-21-224606.png'
     },
      {
         id: 'event3',
-        title: 'The "I Love You" Moment',
+        title: 'Idk I Just Thought This One Was Funny',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/MkygXXy/Screenshot-2024-06-21-224647.png'
+    },
+    {
+        id: 'event4',
+        title: 'The Time You Rejected Me',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/hL7g2zn/Screenshot-2024-06-21-224808.png'
+    },
+    {
+        id: 'event5',
+        title: 'The First Time We Stayed Up Too Late',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/z5pBf88/Screenshot-2024-06-21-224846.png'
+    },
+    {
+        id: 'event6',
+        title: 'Our First Matching PFPs (Besides the Frogs)',
+        date: '',
+        description: 'I couldn\'t find the frogs!',
+        imageUrls: [
+            'https://i.ibb.co/DzdvsfB/Screenshot-2024-06-21-224953.png',
+            'https://i.ibb.co/JqZ1xPq/Screenshot-2024-06-21-225010.png'
+        ]
+    },
+    {
+        id: 'event7',
+        title: 'The First Time You Slid Into My DMs',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/v6Rd8gDf/Screenshot-2024-06-21-225102.png'
+    },
+    {
+        id: 'event8',
+        title: 'The First Actual Compliment You Gave Me 😍',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/LDctZxX/Screenshot-2024-06-21-225219.png'
+    },
+    {
+        id: 'event9',
+        title: 'Our First Super Long Call',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/tMGkcP1/Screenshot-2024-06-21-225253.png'
+    },
+    {
+        id: 'event10',
+        title: 'Your First Wet Dream About Me',
+        date: '',
+        description: '',
+        imageUrl: 'https://i.ibb.co/TB7wvVP/Screenshot-2024-06-21-225330.png'
+    },
+    {
+        id: 'event11',
+        title: 'Our First "I Love You"',
         date: 'December 25, 2023',
-        description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.'
+        description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
+        imageUrl: 'https://i.ibb.co/FbsKGF9/Screenshot-2024-06-21-225401.png'
+    },
+    {
+        id: 'event12',
+        title: 'Present Day',
+        date: 'Now',
+        description: 'More in love than ever and happier than I\'ve ever been.'
     }
 ];
