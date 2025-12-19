@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard, Album } from 'lucide-react';
+import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard, Album, Package, CalendarClock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -13,6 +13,8 @@ const navItems = [
   { href: '/gallery', label: 'Gallery', icon: ImageIcon },
   { href: '/letters', label: 'Letters', icon: BookHeart },
   { href: '/playlists', label: 'Playlists', icon: Heart },
+  { href: '/jar', label: 'The Jar', icon: Package },
+  { href: '/timeline', label: 'Timeline', icon: CalendarClock },
 ];
 
 export default function MainNav() {

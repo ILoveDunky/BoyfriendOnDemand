@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Heart, Image as ImageIcon, Music, BookHeart } from 'lucide-react';
+import { Heart, Image as ImageIcon, Music, BookHeart, CalendarClock, Package } from 'lucide-react';
 
 const features = [
   {
@@ -31,6 +31,20 @@ const features = [
     icon: Heart,
     color: 'text-rose-400',
   },
+  {
+    title: 'The Jar',
+    description: 'A little reminder of why I love you.',
+    href: '/jar',
+    icon: Package,
+    color: 'text-purple-400',
+  },
+    {
+    title: 'Our Timeline',
+    description: 'A journey through our favorite moments.',
+    href: '/timeline',
+    icon: CalendarClock,
+    color: 'text-teal-400',
+  },
 ];
 
 export default function DashboardPage() {
@@ -45,7 +59,7 @@ export default function DashboardPage() {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <Link href={feature.href} key={feature.title}>
             <Card

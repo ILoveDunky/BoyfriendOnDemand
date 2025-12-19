@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Heart, Moon, Smile, Sparkles, Coffee, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Package, BookOpen, Mic2 } from 'lucide-react';
+import { Heart, Moon, Smile, Sparkles, Briefcase, HeartHandshake, Feather, CloudRain, Wind, Package, BookOpen, Mic2 } from 'lucide-react';
 
 export interface AudioClip {
   id: string;
@@ -27,6 +27,13 @@ export interface Letter {
   title: string;
   date: string;
   content: string;
+}
+
+export interface TimelineEvent {
+    id: string;
+    title: string;
+    date: string;
+    description: string;
 }
 
 // Order: Everyday, Soft, Hard
@@ -154,7 +161,7 @@ export const soundboardCategories: SoundboardCategory[] = [
     name: 'Everything Feels Too Heavy',
     icon: CloudRain,
     clips: [
-        { id: 'heavy1', title: 'A longer one for you', audioSrc: 'https://files.catbox.moe/0x64j2.mp3' },
+        { id: 'heavy1', title: 'For when things are heavy', audioSrc: 'https://files.catbox.moe/0x64j2.mp3' },
     ],
     footer: "This is a longer one to keep you company when things feel heavy."
   },
@@ -258,4 +265,50 @@ export const letters: Letter[] = [
     date: 'January 15, 2024',
     content: `Sometimes I see you get that little crease between your eyebrows when you're worried, and I wish you could see yourself the way I see you. You are the strongest, kindest, and most brilliant person I have ever met. You handle every challenge with so much grace. Please never doubt the incredible person you are. You are more than enough. You are everything.`,
   },
+];
+
+export const reasonsForJar: string[] = [
+    "I love how deeply you feel things.",
+    "I love the way you care, even when it costs you energy.",
+    "I love how soft you are with the people you trust.",
+    "I love your laugh, especially when you don’t try to hold it in.",
+    "I love how your presence makes things feel calmer and warmer.",
+    "I love how you try, even on days when everything feels hard.",
+    "I love the way you think about things so carefully.",
+    "I love how you show affection in small, meaningful ways.",
+    "I love how you let yourself be vulnerable with me.",
+    "I love how you make ordinary moments feel special.",
+    "I love your voice.",
+    "I love how you notice little things other people miss.",
+    "I love your honesty, even when it’s difficult.",
+    "I love how you want to feel close and connected.",
+    "I love how gentle you can be, even with yourself sometimes.",
+    "I love how you care about doing the right thing.",
+    "I love how you make me feel trusted.",
+    "I love how your emotions are real and sincere.",
+    "I love the little faces you make in the shower as you're washing your hair.",
+    "I love the look in your eyes when you just wake up in the mornings.",
+    "I love the way your jokes always make me laugh.",
+    "I love the way we always have the best banter."
+];
+
+export const timelineEvents: TimelineEvent[] = [
+    {
+        id: 'event1',
+        title: 'Our First Coffee',
+        date: 'September 1, 2023',
+        description: 'The day it all began. We talked for hours and it felt like minutes. I didn\'t want it to end.'
+    },
+    {
+        id: 'event2',
+        title: 'That Midnight Drive',
+        date: 'November 18, 2023',
+        description: 'Just driving around, listening to music, and talking about everything and nothing. It felt like we were the only two people in the world.'
+    },
+     {
+        id: 'event3',
+        title: 'The "I Love You" Moment',
+        date: 'December 25, 2023',
+        description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.'
+    }
 ];
