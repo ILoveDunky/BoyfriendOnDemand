@@ -283,6 +283,17 @@ Every day with you feels like something I want to hold onto forever. You make me
 
 Thank you for being in my life, my beautiful and wonderful baby girl.`,
   },
+  {
+    id: 'letter3',
+    title: 'A Note on How Lucky I Am',
+    content: `To my baby,
+
+Sometimes I stop and realize just how lucky I am to have you in my life. Every day I get to care about you, think about you, and love you a little deeper than the day before. You’ve become such an important part of my world, and I wouldn’t trade that for anything.
+
+Being with you makes everything feel lighter. You make me feel appreciated and cared for in ways that mean more to me than you know. I want to always be someone who brings you comfort, happiness, and reassurance.
+
+Thank you for being you, my babygirl.`,
+  },
 ];
 
 export const reasonsForJar: string[] = [
@@ -294,8 +305,8 @@ export const reasonsForJar: string[] = [
     "I love how you try, even on days when everything feels hard.",
     "I love the way you think about things so carefully.",
     "I love how you show affection in small, meaningful ways.",
-    "I love how you let yourself be vulnerable with me.",
-    "I love how you make ordinary moments feel special.",
+    "I love the way your jokes always make me laugh.",
+    "I love the way we always have the best banter.",
     "I love your voice.",
     "I love how you notice little things other people miss.",
     "I love your honesty, even when it’s difficult.",
@@ -306,10 +317,9 @@ export const reasonsForJar: string[] = [
     "I love how your emotions are real and sincere.",
     "I love the little faces you make in the shower as you're washing your hair.",
     "I love the look in your eyes when you just wake up in the mornings.",
-    "I love the way your jokes always make me laugh.",
-    "I love the way we always have the best banter.",
     "I love how you make me feel wanted.",
     "I love how safe you let yourself be with me.",
+    "I love how you let yourself be vulnerable with me.",
     "I love how you choose me every day.",
     "I love how you make me smile without meaning to.",
     "I love how you let yourself need me.",
@@ -329,7 +339,6 @@ export const reasonsForJar: string[] = [
     "I love how you trust me with your heart.",
     "I love how you make me want to be better.",
     "I love how loving you feels meaningful.",
-    "I love how you let yourself be soft with me.",
     "I love how connected you want to feel.",
     "I love how real you are.",
     "I love how much love you have inside you.",
