@@ -351,35 +351,35 @@ export const timelineEvents: TimelineEvent[] = [
     {
         id: 'event1',
         title: 'Our First Messages',
-        date: 'Beginning of the Story',
+        date: 'June 21, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/rnkyiu.png'
     },
     {
         id: 'event2',
         title: 'The First Time I Trolled You',
-        date: '',
+        date: 'June 21, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/oigo0c.png'
     },
      {
         id: 'event3',
         title: 'Idk I Just Thought This One Was Funny',
-        date: '',
+        date: 'June 24, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/cpoaub.png'
     },
     {
         id: 'event4',
         title: 'The Time You Rejected Me',
-        date: '',
+        date: 'June 26, 2026',
         description: '',
         imageUrl: 'https://files.catbox.moe/x2l2he.png'
     },
     {
         id: 'event5',
         title: 'The First Time We Stayed Up Too Late',
-        date: '',
+        date: 'June 27, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/rxasuu.png'
     },
