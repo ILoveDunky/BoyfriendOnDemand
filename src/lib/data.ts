@@ -251,7 +251,7 @@ export const playlists: Playlist[] = [
     id: 'pl4',
     title: 'How You Make Me Feel',
     description: 'A feeling I can\'t describe.',
-    embedSrc: 'https://open.spotify.com/embed/playlist/6GQ2bXnvmmKjiqeTenHYFm?utm_source=generator&theme=0',
+    embedSrc: 'https://open.spotify.com/embed/playlist/6GQ2bXnvmmKJiqeTenHYFm?utm_source=generator&theme=0',
   },
 ];
 
@@ -396,7 +396,7 @@ export const timelineEvents: TimelineEvent[] = [
     {
         id: 'event7',
         title: 'The First Time You Slid Into My DMs',
-        date: '',
+        date: 'July 2, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/3mr34t.png'
     },
@@ -410,28 +410,28 @@ export const timelineEvents: TimelineEvent[] = [
     {
         id: 'event9',
         title: 'Our first super long call',
-        date: '',
+        date: 'July 12, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/qbbv47.png'
     },
     {
         id: 'event10',
         title: 'Your First Wet Dream About Me',
-        date: '',
+        date: 'July 13, 2025',
         description: '',
         imageUrl: 'https://files.catbox.moe/5ce27q.png'
     },
     {
         id: 'event11',
         title: 'And So It Began...',
-        date: 'December 25, 2023',
+        date: 'September 21, 2025',
         description: 'The day you made me the happiest man alive.',
         imageUrl: 'https://files.catbox.moe/sjj9t6.png'
     },
     {
         id: 'event12',
         title: 'Our First "I Love You"',
-        date: 'December 25, 2023',
+        date: 'November 10, 2025',
         description: 'You said it first, and my heart just about exploded. The easiest "I love you too" I\'ve ever said.',
         imageUrl: 'https://files.catbox.moe/4sdjpd.png'
     },
