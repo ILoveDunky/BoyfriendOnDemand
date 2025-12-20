@@ -4,7 +4,7 @@
 import { timelineEvents } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Calendar, Pin, X } from 'lucide-react';
+import { Calendar, Pin } from 'lucide-react';
 import Image from 'next/image';
 
 export default function TimelinePage() {
@@ -21,16 +21,20 @@ export default function TimelinePage() {
 
       <div className="relative">
         {/* The vertical line in the middle */}
-        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
+        <div className="absolute left-6 sm:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
 
         {timelineEvents.map((event, index) => (
           <div 
             key={event.id}
-            className={`relative mb-12 flex w-full items-start ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+            className={`relative mb-12 flex w-full items-start justify-start sm:justify-center`}
           >
-            <div className={`w-1/2 px-4 sm:px-8 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+             <div className="sm:hidden absolute left-6 top-8 z-10 h-8 w-8 -translate-x-1/2 rounded-full bg-background flex items-center justify-center border-2 border-accent">
+                <Pin className="h-4 w-4 text-accent" />
+            </div>
+
+            <div className={`w-full sm:w-1/2 px-4 sm:px-8 ml-10 sm:ml-0 ${index % 2 === 0 ? 'sm:text-right sm:pr-8' : 'sm:text-left sm:pl-8 sm:translate-x-full'}`}>
               <Card className="bg-background/80 transition-shadow duration-300 hover:shadow-xl hover:shadow-accent/20 inline-block w-full max-w-md">
-                <CardHeader>
+                <CardHeader className={index % 2 === 0 ? 'sm:text-right' : 'sm:text-left'}>
                   <CardTitle className="font-headline text-xl sm:text-2xl">{event.title}</CardTitle>
                   {event.date && (
                     <CardDescription className="flex items-center gap-2" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start'}}>
@@ -39,7 +43,7 @@ export default function TimelinePage() {
                     </CardDescription>
                   )}
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-left">
                   {event.description && <p className="text-muted-foreground mb-4">{event.description}</p>}
                   
                   {event.imageUrl && (
@@ -76,7 +80,7 @@ export default function TimelinePage() {
             </div>
             
             {/* The pin on the timeline */}
-            <div className="absolute left-1/2 top-8 z-10 h-8 w-8 -translate-x-1/2 rounded-full bg-background flex items-center justify-center border-2 border-accent">
+            <div className="hidden sm:flex absolute left-1/2 top-8 z-10 h-8 w-8 -translate-x-1/2 rounded-full bg-background items-center justify-center border-2 border-accent">
                 <Pin className="h-4 w-4 text-accent" />
             </div>
           </div>

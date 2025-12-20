@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -60,7 +61,7 @@ export default function JarPage() {
 
       <div className="relative w-full max-w-md">
         <div className={`relative transition-transform duration-500 ${isShaking ? 'animate-shake' : ''}`}>
-           <Package className="w-64 h-64 mx-auto text-primary/30" strokeWidth={0.5} />
+           <Package className="w-48 h-48 sm:w-64 sm:h-64 mx-auto text-primary/30" strokeWidth={0.5} />
         </div>
         
         <Card className="min-h-[150px] mt-[-50px] relative bg-background/80 border-2 border-dashed border-accent p-6 flex items-center justify-center text-center shadow-lg transition-all duration-300">

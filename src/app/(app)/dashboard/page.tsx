@@ -51,7 +51,7 @@ export default function DashboardPage() {
   return (
     <div className="container mx-auto">
       <header className="mb-12 text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="font-headline text-3xl font-bold tracking-tight md:text-5xl">
           Welcome, My Love
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
