@@ -3,7 +3,8 @@
 
 import { timelineEvents } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Calendar, Pin } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Calendar, Pin, X } from 'lucide-react';
 import Image from 'next/image';
 
 export default function TimelinePage() {
@@ -40,17 +41,33 @@ export default function TimelinePage() {
                 </CardHeader>
                 <CardContent>
                   {event.description && <p className="text-muted-foreground mb-4">{event.description}</p>}
+                  
                   {event.imageUrl && (
-                     <div className="relative aspect-video overflow-hidden rounded-lg border bg-muted/30">
-                        <Image src={event.imageUrl} alt={event.title} fill className="object-contain" />
-                     </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-video overflow-hidden rounded-lg border bg-muted/30 cursor-pointer transition-transform duration-300 hover:scale-105">
+                          <Image src={event.imageUrl} alt={event.title} fill className="object-contain" />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="p-0 border-0 max-w-screen-lg bg-transparent shadow-none">
+                        <Image src={event.imageUrl} alt={event.title} width={1920} height={1080} className="w-full h-auto rounded-lg" />
+                      </DialogContent>
+                    </Dialog>
                   )}
+
                   {event.imageUrls && (
                     <div className="grid grid-cols-2 gap-2">
                        {event.imageUrls.map((url, i) => (
-                         <div key={i} className="relative aspect-square overflow-hidden rounded-lg border bg-muted/30">
-                           <Image src={url} alt={`${event.title} ${i+1}`} fill className="object-contain" />
-                         </div>
+                          <Dialog key={i}>
+                            <DialogTrigger asChild>
+                              <div className="relative aspect-square overflow-hidden rounded-lg border bg-muted/30 cursor-pointer transition-transform duration-300 hover:scale-105">
+                                <Image src={url} alt={`${event.title} ${i+1}`} fill className="object-contain" />
+                              </div>
+                            </DialogTrigger>
+                             <DialogContent className="p-0 border-0 max-w-screen-lg bg-transparent shadow-none">
+                                <Image src={url} alt={`${event.title} ${i+1}`} width={1080} height={1080} className="w-full h-auto rounded-lg" />
+                             </DialogContent>
+                          </Dialog>
                        ))}
                     </div>
                   )}
