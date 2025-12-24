@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Heart, Music, BookHeart, CalendarClock, Package, Album } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const features = [
   {
@@ -31,6 +32,7 @@ const features = [
     href: '/playlists',
     icon: Heart,
     color: 'text-rose-400',
+    animated: true,
   },
   {
     title: 'The Jar',
@@ -69,7 +71,13 @@ export default function DashboardPage() {
             >
               <CardHeader className="p-6">
                 <div className="mb-4">
-                  <feature.icon className={`h-12 w-12 ${feature.color} transition-transform duration-300 group-hover:scale-110`} strokeWidth={1.5} />
+                  <feature.icon className={cn(
+                      'h-12 w-12 transition-transform duration-300 group-hover:scale-110',
+                      feature.color,
+                      { 'heart-breathe': feature.animated }
+                    )} 
+                    strokeWidth={1.5} 
+                  />
                 </div>
                 <CardTitle className="font-headline text-2xl">{feature.title}</CardTitle>
                 <CardDescription className="mt-2">{feature.description}</CardDescription>

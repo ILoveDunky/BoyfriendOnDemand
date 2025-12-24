@@ -44,7 +44,7 @@ export default function EntryPortal() {
           <div className="absolute inset-0 animate-pulse-glow rounded-full"></div>
           
           <Heart
-            className="absolute h-24 w-24 text-accent/50 transition-all duration-500 group-hover:scale-110"
+            className="absolute h-24 w-24 text-accent/50 transition-all duration-500 group-hover:scale-110 heart-breathe"
             fill="currentColor"
           />
            <span className="sr-only">Enter</span>

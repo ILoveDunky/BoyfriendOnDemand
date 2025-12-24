@@ -23,7 +23,7 @@ export default function MainNav() {
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/dashboard" className="flex items-center gap-2 font-headline text-primary">
-          <Heart className="h-6 w-6 text-accent" />
+          <Heart className="h-6 w-6 text-accent heart-breathe" />
           <span className="hidden sm:inline font-bold text-xl">Boyfriend on Demand</span>
           <span className="sm:hidden font-bold text-lg">B.O.D.</span>
         </Link>
