@@ -66,7 +66,7 @@ export default function DashboardPage() {
         {features.map((feature, index) => (
           <Link href={feature.href} key={feature.title}>
             <Card
-              className="group h-full transform-gpu overflow-hidden bg-background/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20"
+              className="group h-full transform-gpu overflow-hidden bg-background/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20 fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="p-6">
