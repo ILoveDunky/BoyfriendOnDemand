@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Heart, Music, BookHeart, CalendarClock, Package, Album } from 'lucide-react';
@@ -12,7 +13,7 @@ const features = [
   },
   {
     title: 'Stories',
-    description: 'Bedtime stories, just for you.',
+    description: 'When you need to hear my voice for longer.',
     href: '/stories',
     icon: Album,
     color: 'text-orange-400',

@@ -20,7 +20,7 @@ export default function StoriesPage() {
           Bedtime Stories
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          For when you want to hear my voice a little longer. Let me tell you a story.
+          When you need to hear my voice for longer. Let me tell you a story.
         </p>
       </header>
 
