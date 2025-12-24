@@ -3,14 +3,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, Image as ImageIcon, Music, BookHeart, LayoutDashboard, Album, Package, CalendarClock } from 'lucide-react';
+import { Heart, Music, BookHeart, LayoutDashboard, Album, Package, CalendarClock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/soundboard', label: 'Soundboard', icon: Music },
   { href: '/stories', label: 'Stories', icon: Album },
-  { href: '/gallery', label: 'Gallery', icon: ImageIcon },
   { href: '/letters', label: 'Letters', icon: BookHeart },
   { href: '/playlists', label: 'Playlists', icon: Heart },
   { href: '/jar', label: 'The Jar', icon: Package },

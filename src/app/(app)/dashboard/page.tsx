@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Heart, Image as ImageIcon, Music, BookHeart, CalendarClock, Package } from 'lucide-react';
+import { Heart, Music, BookHeart, CalendarClock, Package, Album } from 'lucide-react';
 
 const features = [
   {
@@ -11,11 +11,11 @@ const features = [
     color: 'text-primary',
   },
   {
-    title: 'Photo Gallery',
-    description: 'A few selfies to make you smile.',
-    href: '/gallery',
-    icon: ImageIcon,
-    color: 'text-pink-400',
+    title: 'Stories',
+    description: 'Bedtime stories, just for you.',
+    href: '/stories',
+    icon: Album,
+    color: 'text-orange-400',
   },
   {
     title: 'Love Letters',

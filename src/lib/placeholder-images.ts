@@ -9,5 +9,3 @@ export type ImagePlaceholder = {
 };
 
 export const PlaceHolderImages: ImagePlaceholder[] = data.placeholderImages;
-
-    
