@@ -1,13 +1,14 @@
 
 'use client';
 
-import React, { createContext, useContext, useState, useRef, useCallback } from 'react';
-import * as Tone from 'tone';
+import React, { createContext, useContext, useRef, useCallback } from 'react';
 
 interface SoundContextType {
   playSoundEffect: (url: string) => void;
+  // These are no longer actively used but kept to prevent breaking other components
+  // that might still reference them before we can remove them.
   isInitialized: boolean;
-  initAudio: () => Promise<void>; // Kept for type consistency, but will be simplified.
+  initAudio: () => Promise<void>;
 }
 
 const SoundContext = createContext<SoundContextType | undefined>(undefined);
@@ -21,71 +22,48 @@ export const useSound = () => {
 };
 
 export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isInitialized, setIsInitialized] = useState(false);
-  const playerRef = useRef<Tone.Player | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // This function is now the primary method for ensuring audio is ready.
-  const initAudio = useCallback(async () => {
-    if (Tone.context.state !== 'running') {
-      try {
-        await Tone.start();
-        console.log('Audio context started successfully on demand.');
-        setIsInitialized(true);
-      } catch (e) {
-        console.error("Could not start audio context:", e);
-      }
-    } else {
-       setIsInitialized(true);
-    }
-     if (!playerRef.current) {
-        playerRef.current = new Tone.Player().toDestination();
-        playerRef.current.fadeOut = 0.1;
-    }
-  }, []);
-
-
-  const playSoundEffect = useCallback(async (url: string) => {
+  const playSoundEffect = useCallback((url: string) => {
     if (!url) {
       console.log('No audio URL provided.');
       return;
     }
 
     try {
-      // Direct Initialization Check: As per your suggestion, check and start audio
-      // directly within the user interaction event.
-      if (Tone.context.state !== 'running') {
-        await Tone.start();
-        console.log('Audio context started on demand by playSoundEffect.');
-        setIsInitialized(true);
-      }
-      
-      if (!playerRef.current) {
-        playerRef.current = new Tone.Player().toDestination();
-        playerRef.current.fadeOut = 0.1;
+      // If there's an existing audio element playing, stop it first.
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
       }
 
-      // If the player is already playing something, stop it.
-      if (playerRef.current.state === 'started') {
-        playerRef.current.stop();
-      }
-      
-      // Load the new audio file and play it.
-      await playerRef.current.load(url);
-      playerRef.current.start();
-      console.log(`Playing: ${url}`);
+      // Create a new Audio object for the new sound.
+      // This is the most direct way to play sound and is highly compatible.
+      const newAudio = new Audio(url);
+      audioRef.current = newAudio;
 
+      // The .play() method returns a Promise, which we can use to catch errors.
+      const playPromise = newAudio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Audio playback error:", error);
+          // This error can happen if the browser still blocks autoplay.
+          // At this point, it's a browser-level restriction we can't bypass.
+        });
+      }
     } catch (e) {
       console.error('Error in playSoundEffect:', e);
-      // We can add a user-facing error here if needed.
     }
   }, []);
 
   const value = {
     playSoundEffect,
-    isInitialized,
-    initAudio, // Keep initAudio in the context value for any legacy or future use.
+    // Provide dummy values for the legacy context properties.
+    isInitialized: true,
+    initAudio: async () => {},
   };
-  
+
   return (
     <SoundContext.Provider value={value}>
       {children}
