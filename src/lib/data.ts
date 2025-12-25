@@ -94,18 +94,6 @@ export const soundboardCategories: SoundboardCategory[] = [
   },
   // Soft Moments
   {
-    id: 'soft-near',
-    name: 'When You Just Want Me Near',
-    icon: HeartHandshake,
-    clips: [
-        { id: 'near1', title: 'I Wish I Was There Too', audioSrc: 'https://files.catbox.moe/fqhtrd.mp3' },
-        { id: 'near2', title: 'Even From So Far Away', audioSrc: 'https://files.catbox.moe/6roeil.mp3' },
-        { id: 'near3', title: 'Hug You Properly', audioSrc: 'https://files.catbox.moe/wnuo6w.mp3' },
-        { id: 'near4', title: 'Even If We Can\'t Touch', audioSrc: 'https://files.catbox.moe/0ot38r.mp3' },
-    ],
-    footer: "Sorry there aren't more of these... I tear up a little when I record them."
-  },
-  {
     id: 'soft-affection',
     name: 'Affection',
     icon: Smile,
@@ -239,7 +227,7 @@ export const playlists: Playlist[] = [
     id: 'pl2',
     title: 'I Belong With You',
     description: 'Songs that make me think of you.',
-    embedSrc: 'https://open.spotify.com/embed/playlist/36ZdGEwWmc0DS4jb0POfX6?utm_source=generator&theme=0',
+    embedSrc: 'https://open.spotify.com/embed/playlist/36ZdGEwWmc0DS4gJo0POfX6?utm_source=generator&theme=0',
   },
   {
     id: 'pl3',

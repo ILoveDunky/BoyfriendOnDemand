@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/soundboard', label: 'Soundboard', icon: Music },
-  { href: '/stories', label: 'Stories', icon: Album },
   { href: '/letters', label: 'Letters', icon: BookHeart },
   { href: '/playlists', label: 'Playlists', icon: Heart },
   { href: '/jar', label: 'The Jar', icon: Package },

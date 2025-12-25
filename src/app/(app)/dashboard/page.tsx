@@ -13,13 +13,6 @@ const features = [
     color: 'text-primary',
   },
   {
-    title: 'Stories',
-    description: 'When you need to hear my voice for longer.',
-    href: '/stories',
-    icon: Album,
-    color: 'text-orange-400',
-  },
-  {
     title: 'Love Letters',
     description: 'Words from my heart to yours.',
     href: '/letters',
