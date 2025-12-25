@@ -27,26 +27,47 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
 
   const initAudio = useCallback(async () => {
     if (isInitialized) return;
-    try {
-      await Tone.start();
-      
-      await Tone.loaded();
-
-      sfxPlayer.current = new Tone.Player().toDestination();
-      sfxPlayer.current.fadeOut = 0.1;
-      
-      setIsInitialized(true);
-      console.log('Audio context initialized.');
-
-    } catch (e) {
-      console.error("Error initializing audio:", e);
+    // Tone.start() can only be called once, so we check the state
+    if (Tone.context.state !== 'running') {
+      try {
+        await Tone.start();
+        console.log('Audio context started.');
+      } catch (e) {
+        console.error("Error starting audio context:", e);
+        // Don't proceed if Tone.start() fails
+        return;
+      }
     }
+    
+    // Ensure Tone is fully loaded before we consider it initialized
+    await Tone.loaded();
+
+    if (!sfxPlayer.current) {
+        sfxPlayer.current = new Tone.Player().toDestination();
+        sfxPlayer.current.fadeOut = 0.1;
+    }
+    
+    setIsInitialized(true);
+    console.log('Audio system is initialized.');
+
   }, [isInitialized]);
 
   const playSoundEffect = useCallback(async (url: string) => {
     if (!url) return;
+    
+    // **THE FIX**: If not initialized, initialize audio on first play attempt.
     if (!isInitialized) {
       await initAudio();
+    }
+
+    // A small delay to ensure the context is running, especially after a fresh init
+    if (Tone.context.state !== 'running') {
+      console.warn('Audio context not running. Attempting to start again.');
+      await initAudio(); // Try one more time
+      if (Tone.context.state !== 'running') {
+        console.error('Audio context could not be started. Aborting playback.');
+        return;
+      }
     }
 
     if (sfxPlayer.current) {
