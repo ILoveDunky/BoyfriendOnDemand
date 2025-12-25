@@ -11,12 +11,12 @@ export default function EntryPortal() {
   const router = useRouter();
   const { initAudio } = useSound();
 
-  const handleEnter = async () => {
+  const handleEnter = () => {
     if (isEntering) return;
 
-    // Initialize audio context on the very first user interaction.
-    // We await this to ensure it completes before we do anything else.
-    await initAudio();
+    // We can still call this to optimistically start the context, but the
+    // robust check is now inside playSoundEffect itself.
+    initAudio();
     
     setIsEntering(true);
     
