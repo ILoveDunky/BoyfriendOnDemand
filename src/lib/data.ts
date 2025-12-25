@@ -227,7 +227,7 @@ export const playlists: Playlist[] = [
     id: 'pl2',
     title: 'I Belong With You',
     description: 'Songs that make me think of you.',
-    embedSrc: 'https://open.spotify.com/embed/playlist/36ZdGEwWmc0DS4gJo0POfX6?utm_source=generator&theme=0',
+    embedSrc: 'https://open.spotify.com/embed/playlist/36ZdGEwWmc0DS4jb0POfX6?utm_source=generator&theme=0',
   },
   {
     id: 'pl3',
@@ -431,5 +431,7 @@ export const timelineEvents: TimelineEvent[] = [
     }
 ];
 
+
+    
 
     
