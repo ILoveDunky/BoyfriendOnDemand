@@ -12,10 +12,14 @@ export default function EntryPortal() {
   const { initAudio } = useSound();
 
   const handleEnter = async () => {
-    // Initialize audio context on user interaction
+    if (isEntering) return;
+
+    // Initialize audio context on the very first user interaction.
+    // We await this to ensure it completes before we do anything else.
     await initAudio();
     
     setIsEntering(true);
+    
     setTimeout(() => {
       router.push('/dashboard');
     }, 1500); // Corresponds to animation durations
