@@ -37,9 +37,12 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
         audioRef.current.currentTime = 0;
       }
 
+      // **CACHE BUSTING**: Append a unique query string to the URL.
+      // This forces the browser to treat it as a new file, bypassing the cache.
+      const cacheBustedUrl = `${url}?cb=${new Date().getTime()}`;
+
       // Create a new Audio object for the new sound.
-      // This is the most direct way to play sound and is highly compatible.
-      const newAudio = new Audio(url);
+      const newAudio = new Audio(cacheBustedUrl);
       audioRef.current = newAudio;
 
       // The .play() method returns a Promise, which we can use to catch errors.
@@ -49,7 +52,6 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
         playPromise.catch(error => {
           console.error("Audio playback error:", error);
           // This error can happen if the browser still blocks autoplay.
-          // At this point, it's a browser-level restriction we can't bypass.
         });
       }
     } catch (e) {
