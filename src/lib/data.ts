@@ -374,7 +374,7 @@ export const timelineEvents: TimelineEvent[] = [
     {
         id: 'event6',
         title: 'Our First Matching PFPs (Besides the Frogs)',
-        date: 'I couldn\'t find the frogs!',
+        date: 'I couldn\'t find the frogs',
         description: '',
         imageUrls: [
             'https://files.catbox.moe/y509dp.png',
